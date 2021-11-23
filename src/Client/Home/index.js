@@ -2,19 +2,25 @@ import React, { Component } from "react";
 import './home.css'
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import OwlCarousel from "react-owl-carousel";
+
+import 'owl.carousel/dist/assets/owl.carousel.css';  
+import 'owl.carousel/dist/assets/owl.theme.default.css';  
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             dummy: "https://dummyimage.com/16:9x1080",
-            dummyCard:"https://dummyimage.com/286x180"
+            dummyCard: "https://dummyimage.com/286x180",
+            dummyOwl: "https://dummyimage.com/300x300",
+            vector1: 'https://image.freepik.com/free-vector/webinar-concept-illustration_114360-4764.jpg'
         };
     }
     render() {
         return (
-            <div>
-                <Navbar />
+            <div className="loader">
+                <Navbar beranda="active"/>
                 {/* Isi Home */}
                 <div>
                     {/* Carousel Start */}
@@ -53,57 +59,85 @@ class Home extends Component {
                     </div>
                     {/* Carousel End */}
 
-                    {/* Blog Start */}
-                    <center style={{paddingTop:20}}>
-                        <h2 style={{paddingBottom:20}}><u>Artikel</u></h2>
-                        <div className="row row-cols-1 row-cols-md-4 g-2">
+                    {/* MRC Therapy */}
+                    <div style={{ paddingTop: 20 }}>
+                        <h2><u>MRC Therapy</u></h2>
+                        <div className="row row-cols-1 row-cols-md-2 g-2">
                             <div className="col">
-                                <div class="card h-100" className="cardImg">
-                                    <img src={this.state.dummyCard} class="card-img-top" alt="..."/>
-                                    <div class ="card-body">
-                                    <h5 class ="card-title">Card title</h5>
-                                    <p class ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class ="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
+                                <img src={this.state.vector1} className="imgMrc" />
                             </div>
-                            <div className="col">
-                                <div class="card h-100" className="cardImg">
-                                    <img src={this.state.dummyCard} class="card-img-top" alt="..."/>
-                                    <div class ="card-body">
-                                    <h5 class ="card-title">Card title</h5>
-                                    <p class ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class ="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
+                            <div className="col spacing">
+                                <p style={{textAlign:'justify'}}>
+                                    MRC Therapy atau Muslim Ruqyah Center Therapy adalah metode pengobatan untuk berbagai penyakit medis maupun non medis melalui ayat-ayat Al-qur'an yang dibacakan atau dido'akan kepada seseorang yang mengalami gangguan penyakit.
+                                    <br/>
+                                    Sebagai penunjang penyembuhan, Kami menggunakan obat-obat herbal yang sesuai dengan anjuran Nabi seperti serbuk bidara, minyak zaitun, kurma aliyah, air zam-zam, madu, serta garam himalaya.
+                                </p>
+
+                                <a href="#"><button className="color-button">Selengkapnya</button></a>
                             </div>
-                            <div className="col">
-                                <div class="card h-100" className="cardImg">
-                                    <img src={this.state.dummyCard} class="card-img-top" alt="..."/>
-                                    <div class ="card-body">
-                                    <h5 class ="card-title">Card title</h5>
-                                    <p class ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class ="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div class="card h-100" className="cardImg">
-                                    <img src={this.state.dummyCard} class="card-img-top" alt="..."/>
-                                    <div class ="card-body">
-                                    <h5 class ="card-title">Card title</h5>
-                                    <p class ="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class ="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
                         </div>
-                        
+                    </div>
+
+                    {/* Mengapa Harus MRC Therapy */}
+                    <div style={{paddingTop:20}}>
+                        <h2><u>Mengapa Harus MRC Therapy ? </u></h2>
+                        <div className="square-why">
+                            <OwlCarousel items={3}
+                                className="owl-theme"
+                                loop
+                                nav
+                                margin={8}
+                            >
+                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
+                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
+                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
+                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
+                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
+
+                            </OwlCarousel>
+                        </div>
+                    </div>
+
+                    {/* Blog Start */}
+                    <center style={{ paddingTop: 20 }}>
+                        <h2 style={{ paddingBottom: 20 }}><u>Artikel</u></h2>
+                        <div className="row row-cols-1 row-cols-md-3 g-2">
+                            <div className="col">
+                                <div class="card h-100" className="cardImg">
+                                    <img src={this.state.dummyCard} class="card-img-top" alt="..." />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col">
+                                <div class="card h-100" className="cardImg">
+                                    <img src={this.state.dummyCard} class="card-img-top" alt="..." />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col">
+                                <div class="card h-100" className="cardImg">
+                                    <img src={this.state.dummyCard} class="card-img-top" alt="..." />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </center>
                     {/* Blog End */}
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         );
     }
