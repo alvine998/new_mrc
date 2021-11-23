@@ -13,7 +13,7 @@ class Home extends Component {
         this.state = {
             dummy: "https://dummyimage.com/16:9x1080",
             dummyCard: "https://dummyimage.com/286x180",
-            dummyOwl: "https://dummyimage.com/300x300",
+            dummyOwl: "https://dummyimage.com/350x350",
             vector1: 'https://image.freepik.com/free-vector/webinar-concept-illustration_114360-4764.jpg'
         };
     }
@@ -73,7 +73,7 @@ class Home extends Component {
                                     Sebagai penunjang penyembuhan, Kami menggunakan obat-obat herbal yang sesuai dengan anjuran Nabi seperti serbuk bidara, minyak zaitun, kurma aliyah, air zam-zam, madu, serta garam himalaya.
                                 </p>
 
-                                <a href="#"><button className="color-button">Selengkapnya</button></a>
+                                <a href="/program-kami"><button className="color-button">Selengkapnya</button></a>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ class Home extends Component {
                     </div>
 
                     {/* Blog Start */}
-                    <center style={{ paddingTop: 20 }}>
+                    <center style={{ paddingTop: 20, paddingBottom:20 }}>
                         <h2 style={{ paddingBottom: 20 }}><u>Artikel</u></h2>
                         <div className="row row-cols-1 row-cols-md-3 g-2">
                             <div className="col">
@@ -108,7 +108,7 @@ class Home extends Component {
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" class="btn btn-primary colortrue">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@ class Home extends Component {
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" class="btn btn-primary colortrue">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@ class Home extends Component {
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="#" class="btn btn-primary colortrue">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>

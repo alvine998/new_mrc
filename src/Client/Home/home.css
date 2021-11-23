@@ -28,9 +28,19 @@ h2 {
 
 .square-why {
     background-image: linear-gradient(to right, rgb(171, 105, 197), rgb(151, 32, 187));
-    height: 500px;
+    height: 450px;
     width: 100%;
     padding: 20px;
+}
+
+.colortrue {
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.colortrue:hover {
+    opacity: 1;
+    transition: 0.5s;
 }
 
 .img {
