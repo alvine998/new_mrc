@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'font-awesome/css/font-awesome.min.css'
 import Home from './Client/Home';
 import Program from './Client/Program';
+import Login from './Admin/Login';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/program-kami" element={<Program/>} />
+
+          {/* Admin */}
+          <Route path="/admin/login" element={<Login/>} />
         </Routes>
       </BrowserRouter>
     </div>
