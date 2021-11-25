@@ -8,6 +8,7 @@ import Program from './Client/Program';
 import Login from './Admin/Login';
 import Dashboard from './Admin/Dashboard';
 import Blog from './Admin/Blog';
+import Banner from './Admin/Banner';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           }
           <Route path="/admin/dashboard" element={<Dashboard/>} />
           <Route path="/admin/blog" element={<Blog/>} />
+          <Route path="/admin/banner" element={<Banner/>} />
         </Routes>
       </BrowserRouter>
     </div>

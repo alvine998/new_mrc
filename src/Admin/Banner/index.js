@@ -21,25 +21,22 @@ class Banner extends Component {
                     <div className="col dash">
                         <div className="container">
                             <div className="btn-left">
-                                <a href="#" className="btn btn-primary">Tambah Artikel</a>
+                                <a href="#" className="btn btn-primary">Tambah Banner</a>
                             </div>
                             <div className="space-top">
                                 <table class="table table-responsive table-bordered">
                                     <thead>
                                         <tr>
                                             <th scope="col">No</th>
-                                            <th scope="col">Judul</th>
-                                            <th scope="col">Isi Artikel</th>
+                                            <th scope="col">Gambar Banner</th>
                                             <th scope="col">Tools</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>Ruqyah di rumah</td>
-                                            <td>Loperm Isum Bretapa sadsdhnaj debawauy swdawj auisdhwb asdkabe ashjbdkei wjuhkiajun awdhjbawhjubd badhjwabg </td>
+                                            <td>dkei wjuhkiajun awdhjbawhjubd badhjwabg </td>
                                             <td>
-                                                <a className="btn btn-success" style={{marginBottom:10}} >Ubah</a>
                                                 <a className="btn btn-danger" >Hapus</a>
                                             </td>
                                         </tr>
