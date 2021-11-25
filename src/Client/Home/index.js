@@ -67,7 +67,7 @@ class Home extends Component {
                                 <img src={this.state.vector1} className="imgMrc" />
                             </div>
                             <div className="col spacing">
-                                <p style={{textAlign:'justify'}}>
+                                <p style={{textAlign:'justify', paddingRight:20, paddingLeft:20, paddingTop:20}}>
                                     MRC Therapy atau Muslim Ruqyah Center Therapy adalah metode pengobatan untuk berbagai penyakit medis maupun non medis melalui ayat-ayat Al-qur'an yang dibacakan atau dido'akan kepada seseorang yang mengalami gangguan penyakit.
                                     <br/>
                                     Sebagai penunjang penyembuhan, Kami menggunakan obat-obat herbal yang sesuai dengan anjuran Nabi seperti serbuk bidara, minyak zaitun, kurma aliyah, air zam-zam, madu, serta garam himalaya.

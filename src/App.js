@@ -6,6 +6,8 @@ import 'font-awesome/css/font-awesome.min.css'
 import Home from './Client/Home';
 import Program from './Client/Program';
 import Login from './Admin/Login';
+import Dashboard from './Admin/Dashboard';
+import Blog from './Admin/Blog';
 
 function App() {
   return (
@@ -16,7 +18,13 @@ function App() {
           <Route path="/program-kami" element={<Program/>} />
 
           {/* Admin */}
-          <Route path="/admin/login" element={<Login/>} />
+          {
+            ["/admin", "/admin/login"].map(path => (
+              <Route path={path} element={<Login/>} />
+            ))
+          }
+          <Route path="/admin/dashboard" element={<Dashboard/>} />
+          <Route path="/admin/blog" element={<Blog/>} />
         </Routes>
       </BrowserRouter>
     </div>

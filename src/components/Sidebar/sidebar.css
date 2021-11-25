@@ -1,0 +1,17 @@
+.bgCol {
+    background-color: rgb(216, 142, 44);
+    width: 50%;
+}
+
+.nav-link {
+    color: azure;
+}
+
+.a-sidebar{
+    text-align: justify;
+    margin-left: 15px;
+}
+
+.active {
+    color: rgb(32, 32, 238);
+}

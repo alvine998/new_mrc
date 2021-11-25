@@ -1,0 +1,15 @@
+.bgColor {
+    background-image: linear-gradient(to left, rgb(80, 79, 79), rgb(155, 155, 155)) ;
+    width: 100%;
+    z-index: 1;
+}
+
+.left{
+    padding-right: 80%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.colour {
+    color: #fff;
+}
