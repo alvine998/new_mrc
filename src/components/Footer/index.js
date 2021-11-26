@@ -26,7 +26,7 @@ class Footer extends Component {
                                     <li><a href="/tentang-kami">Tentang Kami</a></li>
                                     <li><a href="/program-kami">Program Kami</a></li>
                                     <li><a href="/kontak-kami">Kontak Kami</a></li>
-                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="/artikel">Artikel</a></li>
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-6">

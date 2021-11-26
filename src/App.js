@@ -11,6 +11,8 @@ import Blog from './Admin/Blog';
 import Banner from './Admin/Banner';
 import About from './Client/About';
 import Contact from './Client/Contact';
+import Artikel from './Client/Artikel';
+import IsiArtikel from './Client/IsiArtikel';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/program-kami" element={<Program/>} />
           <Route path="/tentang-kami" element={<About/>} />
           <Route path="/kontak-kami" element={<Contact/>} />
+          <Route path="/artikel" element={<Artikel/>} />
+          <Route path="/artikel/isi-artikel" element={<IsiArtikel/>} />
 
           {/* Admin */}
           {
