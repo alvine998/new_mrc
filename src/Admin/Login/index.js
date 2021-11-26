@@ -25,7 +25,8 @@ class Login extends Component {
                                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
                                 </div>
 
-                                <a href="#" className="btn btnSize btnColor">Sign In</a>
+                                <a href="/admin/dashboard" className="btn btnSize btnColor">Sign In</a>
+                                <a href="/" className="btn btnSize btnColor2">Go To Website</a>
                             </form>
                         </div>
                         <div style={{paddingTop:20}}>

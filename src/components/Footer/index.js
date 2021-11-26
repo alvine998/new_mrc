@@ -22,7 +22,7 @@ class Footer extends Component {
                             <div class="col-lg-2 col-md-6">
                                 <h5 class="text-white mb-3">Profil</h5>
                                 <ul class="list-unstyled text-muted">
-                                    <li><a href="#">Tentang Kami</a></li>
+                                    <li><a href="/tentang-kami">Tentang Kami</a></li>
                                     <li><a href="/program-kami">Program Kami</a></li>
                                     <li><a href="#">Kontak Kami</a></li>
                                     <li><a href="#">Blog</a></li>

@@ -9,6 +9,7 @@ import Login from './Admin/Login';
 import Dashboard from './Admin/Dashboard';
 import Blog from './Admin/Blog';
 import Banner from './Admin/Banner';
+import About from './Client/About';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/program-kami" element={<Program/>} />
+          <Route path="/tentang-kami" element={<About/>} />
 
           {/* Admin */}
           {
