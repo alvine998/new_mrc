@@ -29,7 +29,7 @@ class Artikel extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-5">
-                            <a href="#">
+                            <a href="/artikel/isi-artikel">
                                 <div className="box-img-artikel">
                                     <h5>Image Artikel</h5>
                                     <h5>Artikel</h5>
@@ -37,13 +37,13 @@ class Artikel extends Component {
                             </a>
                         </div>
                         <div className="col-3">
-                            <a href="#">
+                            <a href="/artikel/isi-artikel">
                                 <div className="box-img-artikel2">
                                     <h5>Image Artikel</h5>
                                     <h5>Artikel</h5>
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="/artikel/isi-artikel">
                                 <div className="box-img-artikel2">
                                     <h5>Image Artikel</h5>
                                     <h5>Artikel</h5>
@@ -52,13 +52,13 @@ class Artikel extends Component {
                         </div>
 
                         <div className="col-3">
-                            <a href="#">
+                            <a href="/artikel/isi-artikel">
                                 <div className="box-img-artikel2">
                                     <h5>Image Artikel</h5>
                                     <h5>Artikel</h5>
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="/artikel/isi-artikel">
                                 <div className="box-img-artikel2">
                                     <h5>Image Artikel</h5>
                                     <h5>Artikel</h5>
