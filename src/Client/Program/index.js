@@ -7,8 +7,39 @@ import Footer from '../../components/Footer';
 class Program extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            btns:'ruqyah'
+        };
     }
+
+    renderRuqyah(){
+        return(
+            <div>
+                <div className="box-image-ruqyah">
+                    <h5>Image Ruqyah</h5>
+                </div>
+            </div>
+        )
+    }
+
+    renderTerapi(){
+        return(
+            <div>
+                <div className="box-image-terapi">
+                    <h5>Image Terapi</h5>
+                </div>
+            </div>
+        )
+    }
+
+    onRuqyah(){
+        this.setState({btns: 'ruqyah'})
+    }
+
+    onTerapi(){
+        this.setState({btns: 'terapi'})
+    }
+
     render() {
         return (
             <div>
@@ -24,16 +55,24 @@ class Program extends Component {
                     <h2><u>Program MRC Therapy</u></h2>
 
                     {/* Card Program */}
-                    <div className="container" style={{paddingTop:100, paddingBottom:100}}>
+                    <div className="container" style={{paddingTop:20, paddingBottom:100}}>
                         <div className="row">
                             <div className="col-3">
-                                <a><button className="btn-ruqyah">Ruqyah Terapi Syar'i</button></a>
+                                <a><button onClick={() => this.onRuqyah()} className={"btn-ruqyah " + (this.state.btns == 'ruqyah' ? 'actived' : "")}>Ruqyah Terapi Syar'i</button></a>
                             </div>
                             <div className="col-3 right">
-                                <a><button className="btn-terapi">Terapi Reposisi Tulang</button></a>
+                                <a><button onClick={() => this.onTerapi()} className={"btn-terapi " + (this.state.btns == 'terapi' ? 'actived' : "")}>Terapi Reposisi Tulang</button></a>
                             </div>
                         </div>
 
+                        <div>
+                            {
+                                this.state.btns == 'ruqyah' ? this.renderRuqyah() : this.renderTerapi()
+                            }
+                        </div>
+                        <div>
+
+                        </div>
 
                     </div>
                 </div>

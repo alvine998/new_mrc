@@ -33,5 +33,26 @@
 }
 
 .box-image-ruqyah{
-    
+    width: 100%;
+    height: 450px;
+    background-color: blanchedalmond;
+    color: black;
+    box-shadow: 5px 10px #dfdfdf;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.actived {
+    opacity: 1;
+}
+
+.box-image-terapi{
+    width: 100%;
+    height: 450px;
+    background-color: blanchedalmond;
+    color: black;
+    box-shadow: 5px 10px #dfdfdf;
+    margin-top: 10px;
+    border-radius: 20px;
+    transition: ease-in;
 }
