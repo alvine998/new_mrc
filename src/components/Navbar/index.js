@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { mrc_logo } from "../../assets";
 import "./navbar.css"
 
 class Navbar extends Component {
@@ -13,11 +14,10 @@ class Navbar extends Component {
         return (
             <div>
                 <nav class="navbar navbar-responsive navbar-expand-lg navbar-light bg-light fixed-top">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="/"><img src={this.state.logo} className="imgNav"/></a>
-                        
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <div class="container-fluid">                        
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <a class="navbar-brand" href="/"><img src={mrc_logo} className="imgNav"/></a>
+                            <ul class="navbar-nav ">
                                 <li class="nav-item">
                                     <a className={"nav-link " + (this.props.beranda ? "active" : "")} aria-current="page" href="/">Beranda</a>
                                 </li>

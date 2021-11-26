@@ -1,4 +1,6 @@
 .imgNav {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
+    margin-top: -20px;
+    margin-bottom: -20px;
 }

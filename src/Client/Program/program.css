@@ -1,0 +1,37 @@
+.btn-ruqyah {
+    width: 100%;
+    height: 50px;
+    background-color: bisque;
+    opacity: 0.5;
+    border-radius: 10px;
+    color: black;
+    transition: 0.5s;
+    border-color: blanchedalmond;
+}
+
+.btn-ruqyah:hover {
+    opacity: 1;
+}
+
+.btn-terapi {
+    width: 100%;
+    height: 50px;
+    background-color: bisque;
+    opacity: 0.5;
+    border-radius: 10px;
+    color: black;
+    transition: 0.5s;
+    border-color: blanchedalmond;
+}
+
+.right {
+    margin-left: -20px;
+}
+
+.btn-terapi:hover {
+    opacity: 1;
+}
+
+.box-image-ruqyah{
+    
+}
