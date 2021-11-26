@@ -10,6 +10,7 @@ import Dashboard from './Admin/Dashboard';
 import Blog from './Admin/Blog';
 import Banner from './Admin/Banner';
 import About from './Client/About';
+import Contact from './Client/Contact';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/program-kami" element={<Program/>} />
           <Route path="/tentang-kami" element={<About/>} />
+          <Route path="/kontak-kami" element={<Contact/>} />
 
           {/* Admin */}
           {

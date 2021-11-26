@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { white_logo } from '../../assets';
 import "./footer.css"
 
 class Footer extends Component {
@@ -15,7 +16,7 @@ class Footer extends Component {
                     <div class="container py-4">
                         <div class="row gy-4 gx-5">
                             <div class="col-lg-4 col-md-6">
-                                <img src={this.state.logoFooter} className="imgStyle" />
+                                <img src={white_logo} className="imgStyle" />
                                 <p class="small text-muted">Alamat : <br/>D'Kranji Residence 1 No.67 <br/> Kranji, Bekasi Barat, Kota Bekasi, Jawa Barat 17136</p>
                                 <p class="small text-muted mb-0">&copy; Copyrights by MRC Therapy 2021</p>
                             </div>
@@ -24,7 +25,7 @@ class Footer extends Component {
                                 <ul class="list-unstyled text-muted">
                                     <li><a href="/tentang-kami">Tentang Kami</a></li>
                                     <li><a href="/program-kami">Program Kami</a></li>
-                                    <li><a href="#">Kontak Kami</a></li>
+                                    <li><a href="/kontak-kami">Kontak Kami</a></li>
                                     <li><a href="#">Blog</a></li>
                                 </ul>
                             </div>

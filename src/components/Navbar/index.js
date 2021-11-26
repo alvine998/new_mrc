@@ -41,7 +41,7 @@ class Navbar extends Component {
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a className={"nav-link " + (this.props.kontak ? "active" : "")} href="#">Kontak Kami</a>
+                                    <a className={"nav-link " + (this.props.kontak ? "active" : "")} href="/kontak-kami">Kontak Kami</a>
                                 </li>
 
                                 <li class="nav-item">
