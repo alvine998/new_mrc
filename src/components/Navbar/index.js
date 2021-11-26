@@ -31,13 +31,13 @@ class Navbar extends Component {
                                 </li>
                                 
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class={"nav-link dropdown-toggle " + (this.props.galeri ? "active" : "")} href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Galeri
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">Foto</a></li>
+                                        <li><a class="dropdown-item" href="/galeri-foto">Foto</a></li>
                                         <li><hr class="dropdown-divider"/></li>
-                                        <li><a class="dropdown-item" href="#">Video</a></li>
+                                        <li><a class="dropdown-item" href="/galeri-video">Video</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">

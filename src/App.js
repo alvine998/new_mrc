@@ -13,6 +13,7 @@ import About from './Client/About';
 import Contact from './Client/Contact';
 import Artikel from './Client/Artikel';
 import IsiArtikel from './Client/IsiArtikel';
+import Video from './Client/Video';
 
 function App() {
   return (
@@ -24,7 +25,12 @@ function App() {
           <Route path="/tentang-kami" element={<About/>} />
           <Route path="/kontak-kami" element={<Contact/>} />
           <Route path="/artikel" element={<Artikel/>} />
+          {/* Artikel */}
           <Route path="/artikel/isi-artikel" element={<IsiArtikel/>} />
+          {/* Galeri */}
+          <Route path="/galeri-foto" element={<Artikel/>} />
+          <Route path="/galeri-video" element={<Video/>} />
+
 
           {/* Admin */}
           {
