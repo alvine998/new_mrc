@@ -1,12 +1,41 @@
 import React, { Component } from 'react';
 import { mrc_logo } from '../../assets';
 import './login.css'
+import swal from "sweetalert"
 
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            email:'',
+            password:'',
+            navigate:''
+        };
     }
+
+    handleEmail(e){
+        this.setState({email: e.target.value})
+    }
+
+    handlePass(e){
+        this.setState({password: e.target.value})
+    }
+
+    componentDidMount(){
+    }
+
+    onLogin(){
+        if(this.state.email == 'admin@mrc-therapy.com' && this.state.password == 12345678){
+            alert("Berhasil Login")
+            this.setState({navigate: '/admin/dashboard'})
+            window.location.reload()
+        } else {
+            return(
+                alert("Login gagal")
+            )
+        }
+    }
+
     render() {
         return (
             <div>
@@ -18,14 +47,14 @@ class Login extends Component {
                             <form className="sizes">
                                 <div className="form-group">
                                     <label for="exampleInputEmail1" className="texts">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                    <input type="email" class="form-control" id="exampleInputEmail1" value={this.state.email} onChange={this.handleEmail.bind(this)} aria-describedby="emailHelp" placeholder="Enter email" />
                                 </div>
                                 <div class="form-group" style={{paddingTop:10, paddingBottom:20}}>
                                     <label for="exampleInputPassword1" className="texts">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                                    <input type="password" onKeyDown={this.listener} class="form-control" value={this.state.password} onChange={this.handlePass.bind(this)} id="exampleInputPassword1" placeholder="Password"/>
                                 </div>
 
-                                <a href="/admin/dashboard" className="btn btnSize btnColor">Sign In</a>
+                                <a onClick={() => this.onLogin()} href={this.state.navigate} className="btn btnSize btnColor">Sign In</a>
                                 <a href="/" className="btn btnSize btnColor2">Go To Website</a>
                             </form>
                         </div>

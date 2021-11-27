@@ -39,7 +39,7 @@ class Contact extends Component {
                             <div style={{paddingTop:20}}>
                                 <h4 style={{ fontWeight: 'bold' }}>Kontak</h4>
                                 <div>
-                                    <p style={{textAlign:'left'}}><i className="fa fa-phone"></i> 0817-6556-900</p>
+                                    <p style={{textAlign:'left'}}><i className="fa fa-phone"></i> 0812-2044-4409</p>
                                     <p style={{textAlign:'left'}}><i className="fa fa-envelope"></i> info@mrc-therapy.com</p>
                                 </div>
                             </div>

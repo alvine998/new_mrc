@@ -54,3 +54,11 @@ body{
 .cols {
     width: 50%;
 }
+
+.card-visitor{
+    background-image: linear-gradient(to left, rgb(202, 74, 74), rgb(221, 120, 120));
+}
+
+.card-artikel{
+    background-image: linear-gradient(to left, rgb(74, 202, 127), rgb(120, 221, 145));
+}

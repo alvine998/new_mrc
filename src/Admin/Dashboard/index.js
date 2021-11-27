@@ -8,6 +8,10 @@ class Dashboard extends Component {
         super(props);
         this.state = {};
     }
+
+
+    componentDidMount(){
+    }
     render() {
         return (
             <div>
@@ -24,37 +28,35 @@ class Dashboard extends Component {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-md-3">
-                                            <div class="card">
-                                                <img class="card-img-top" src="..." alt="Card image cap" />
+                                            <div class="card card-visitor">
                                                 <div class="card-body">
-                                                    <p class="card-text">Jumlah Visitor</p>
+                                                    <p class="card-text">Jumlah Visitor : </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="col-md-3">
-                                            <div class="card">
-                                                <img class="card-img-top" src="..." alt="Card image cap" />
+                                            <div class="card card-artikel">
                                                 <div class="card-body">
-                                                    <p class="card-text">Jumlah Artikel</p>
+                                                    <p class="card-text">Jumlah Artikel : </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-md-3">
-                                            <div class="card">
+                                        {/* <div className="col-md-3">
+                                            <div class="card card-">
                                                 <img class="card-img-top" src="..." alt="Card image cap" />
                                                 <div class="card-body">
                                                     <p class="card-text">Jumlah Datang</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="col-md-3">
+                                        </div> */}
+                                        {/* <div className="col-md-3">
                                             <div class="card">
                                                 <img class="card-img-top" src="..." alt="Card image cap" />
                                                 <div class="card-body">
                                                     <p class="card-text">Jumlah Stok</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
 
