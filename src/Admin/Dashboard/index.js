@@ -2,15 +2,29 @@ import React, { Component } from 'react';
 import "./dashboard.css"
 import NavAdmin from '../../components/NavAdmin';
 import Sidebar from '../../components/Sidebar';
+import axios from 'axios';
+import MixedChart from '../../components/MixedChart';
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            jumlah_artikel:0
+        };
+    }
+
+    getJumlahArtikel(){
+        axios.get(`http://localhost:4000/artikels/`).then(
+            res => {
+                const collection = res.data;
+                this.setState({jumlah_artikel: collection.length})
+            }
+        )
     }
 
 
     componentDidMount(){
+        this.getJumlahArtikel();
     }
     render() {
         return (
@@ -37,7 +51,7 @@ class Dashboard extends Component {
                                         <div className="col-md-3">
                                             <div class="card card-artikel">
                                                 <div class="card-body">
-                                                    <p class="card-text">Jumlah Artikel : </p>
+                                                    <p class="card-text">Jumlah Artikel : {this.state.jumlah_artikel}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,7 +79,7 @@ class Dashboard extends Component {
                                 <div className="container" style={{ paddingTop: 20 }}>
                                     <div className="square-grafik">
                                         <div>
-                                            Grafik
+                                            <MixedChart/>
                                         </div>
                                     </div>
                                 </div>

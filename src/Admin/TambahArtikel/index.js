@@ -11,6 +11,7 @@ class TambahArtikel extends Component {
         this.state = {
             judul:'',
             image:null,
+            imageName:'',
             paragraph1:'',
             paragraph2:'',
             paragraph3:'',
@@ -25,7 +26,8 @@ class TambahArtikel extends Component {
         if(e.target.files && e.target.files[0]){
             let img = e.target.files[0];
             this.setState({
-                image: URL.createObjectURL(img)
+                image: URL.createObjectURL(img),
+                imageName: img.name
             })
         }
     }
@@ -43,9 +45,12 @@ class TambahArtikel extends Component {
     }
 
     onSaveData(){
+        let formdata = new FormData();
+        
+
         const data = {
             judul: this.state.judul,
-            gambar: this.state.image,
+            gambar: this.state.imageName,
             paragraph1: this.state.paragraph1,
             paragraph2: this.state.paragraph2,
             paragraph3: this.state.paragraph3,
