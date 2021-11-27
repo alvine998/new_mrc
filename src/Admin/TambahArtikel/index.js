@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import "./tambahartikel.css"
 import NavAdmin from '../../components/NavAdmin';
 import Sidebar from '../../components/Sidebar';
+import axios from 'axios';
+import swal from 'sweetalert';
 
 class TambahArtikel extends Component {
     constructor(props) {
@@ -49,6 +51,15 @@ class TambahArtikel extends Component {
             paragraph3: this.state.paragraph3,
         }
         console.log("Kirim : " , data)
+
+        axios.post(`http://localhost:4000/artikels/`, data).then(
+            res => {
+                console.log("Sukses Save : ", res.data)
+                this.setState({judul:'', gambar:null, paragraph1:'', paragraph2:'', paragraph3:''})
+                swal("Sukses Publish", {icon:'success'})
+                
+            }
+        )
     }
 
     render() {

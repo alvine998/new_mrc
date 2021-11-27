@@ -2,11 +2,28 @@ import React, { Component } from 'react';
 import "./blog.css"
 import NavAdmin from '../../components/NavAdmin';
 import Sidebar from '../../components/Sidebar';
+import axios from 'axios';
 
 class Blog extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            collection: []
+        };
+    }
+
+    getDataArtikel() {
+        axios.get(`http://localhost:4000/artikels`).then(
+            res => {
+                const collection = res.data;
+                console.log(collection);
+                this.setState({ collection })
+            }
+        )
+    }
+
+    componentDidMount() {
+        this.getDataArtikel();
     }
 
     render() {
@@ -28,7 +45,7 @@ class Blog extends Component {
                                 <table class="table table-responsive table-bordered">
                                     <thead>
                                         <tr>
-                                            <th scope="col">No</th>
+                                            <th scope="col">Tanggal Publish</th>
                                             <th scope="col">Judul</th>
                                             <th scope="col">Isi Artikel</th>
                                             <th scope="col">Gambar</th>
@@ -36,17 +53,22 @@ class Blog extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Ruqyah di rumah</td>
-                                            <td>Loperm Isum Bretapa sadsdhnaj debawauy swdawj auisdhwb asdkabe ashjbdkei wjuhkiajun awdhjbawhjubd badhjwabg </td>
-                                            <td>image.jpg</td>
-                                            <td>
-                                                <a className="btn btn-success" style={{marginBottom:10}} >Ubah</a>
-                                                <a className="btn btn-danger" >Hapus</a>
-                                            </td>
-                                        </tr>
-                                        
+                                        {
+                                            this.state.collection.reverse().map((res, i) => {
+                                                return <tr key={i}>
+                                                    <th scope="row">{res.createdAt.substr(0,10)}</th>
+                                                    <td>{res.judul}</td>
+                                                    <td>{res.paragraph1}<br/>{res.paragraph2}<br/>{res.paragraph3}</td>
+                                                    <td>{res.gambar}</td>
+                                                    <td>
+                                                        <a className="btn btn-success" style={{ marginBottom: 10 }} >Ubah</a><br/>
+                                                        <a className="btn btn-danger" >Hapus</a>
+                                                    </td>
+                                                </tr>
+                                            })
+                                        }
+
+
                                     </tbody>
                                 </table>
                             </div>
