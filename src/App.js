@@ -15,6 +15,7 @@ import Artikel from './Client/Artikel';
 import IsiArtikel from './Client/IsiArtikel';
 import Video from './Client/Video';
 import TambahArtikel from './Admin/TambahArtikel';
+import TambahBanner from './Admin/TambahBanner';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/admin/blog" element={<Blog/>} />
           <Route path="/admin/tambah-artikel" element={<TambahArtikel/>} />
           <Route path="/admin/banner" element={<Banner/>} />
+          <Route path="/admin/tambah-banner" element={<TambahBanner/>} />
         </Routes>
       </BrowserRouter>
     </div>

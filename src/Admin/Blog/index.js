@@ -22,6 +22,15 @@ class Blog extends Component {
         )
     }
 
+    deleteArtikel(id){
+        axios.delete(`http://localhost:4000/artikels/${id}`).then(
+            res => {
+                console.log("Sukses Delete : " , res.data)
+                window.location.reload()
+            }
+        )
+    }
+
     componentDidMount() {
         this.getDataArtikel();
     }
@@ -49,6 +58,7 @@ class Blog extends Component {
                                             <th scope="col">Judul</th>
                                             <th scope="col">Isi Artikel</th>
                                             <th scope="col">Gambar</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Tools</th>
                                         </tr>
                                     </thead>
@@ -56,13 +66,14 @@ class Blog extends Component {
                                         {
                                             this.state.collection.reverse().map((res, i) => {
                                                 return <tr key={i}>
-                                                    <th scope="row">{res.createdAt.substr(0,10)}</th>
+                                                    <th>{res.createdAt.substr(0,10)}</th>
                                                     <td>{res.judul}</td>
                                                     <td>{res.paragraph1}<br/>{res.paragraph2}<br/>{res.paragraph3}</td>
-                                                    <td><img src={`http://localhost:4000/upload/images/${res.gambar}`} className="img-blog" /></td>
+                                                    <th><img src={`http://localhost:4000/upload/images/${res.gambar}`} className="img-blog" /></th>
+                                                    <td>{res.status}</td>
                                                     <td>
                                                         <a className="btn btn-success" style={{ marginBottom: 10 }} >Ubah</a><br/>
-                                                        <a className="btn btn-danger" >Hapus</a>
+                                                        <a className="btn btn-danger" onClick={() => this.deleteArtikel(res._id)} >Hapus</a>
                                                     </td>
                                                 </tr>
                                             })
