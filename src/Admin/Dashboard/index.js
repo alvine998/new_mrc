@@ -79,7 +79,7 @@ class Dashboard extends Component {
                                 <div className="container" style={{ paddingTop: 20 }}>
                                     <div className="square-grafik">
                                         <div>
-                                            <MixedChart/>
+                                            {/* <MixedChart/> */}
                                         </div>
                                     </div>
                                 </div>

@@ -11,7 +11,8 @@ class TambahArtikel extends Component {
         this.state = {
             judul:'',
             image:null,
-            imageName:'',
+            imageName:null,
+            photo:'',
             paragraph1:'',
             paragraph2:'',
             paragraph3:'',
@@ -24,12 +25,9 @@ class TambahArtikel extends Component {
 
     onImageChange(e){
         if(e.target.files && e.target.files[0]){
-            let img = e.target.files[0];
-            this.setState({
-                image: URL.createObjectURL(img),
-                imageName: img.name
-            })
-        }
+            let img = e.target.files[0]
+            this.setState({image: img,imageName: URL.createObjectURL(img)})
+        }   
     }
 
     onChangeParagraph1(e){
@@ -44,13 +42,30 @@ class TambahArtikel extends Component {
         this.setState({paragraph3: e.target.value})
     }
 
-    onSaveData(){
-        let formdata = new FormData();
-        
+    onUploadImage(){
+        let formdata = new FormData()
+        formdata.append("gambar", this.state.image)
+
+        axios.post('http://localhost:4000/upload/', formdata).then(
+            res => {
+                console.log(res.data)
+            }
+        )
+    }
+
+    onSaveData(e){
+        // e.preventDefault();
+        // const formdata = new FormData();
+        // formdata.append('judul', this.state.judul)
+        // formdata.append('gambar', this.state.image)
+        // formdata.append('paragraph1', this.state.paragraph1)
+        // formdata.append('paragraph2', this.state.paragraph2)
+        // formdata.append('paragraph3', this.state.paragraph3)
+
 
         const data = {
             judul: this.state.judul,
-            gambar: this.state.imageName,
+            gambar: 'gambar-' + this.state.image.name,
             paragraph1: this.state.paragraph1,
             paragraph2: this.state.paragraph2,
             paragraph3: this.state.paragraph3,
@@ -78,7 +93,7 @@ class TambahArtikel extends Component {
                     <div className="col dash">
                         <h2><u>Input Artikel</u></h2>
                         <div style={{ paddingTop: 20 }}>
-                            <form>
+                            <form encType='multipart/form-data'>
 
                                 <div className="container">
                                     <div className="row">
@@ -91,12 +106,12 @@ class TambahArtikel extends Component {
                                             <div className="judul-width" style={{ paddingTop: 20 }}>
                                                 <h5 style={{ float: 'left' }}>Tambah Gambar</h5>
                                                 <input className="form-control form-control-sm" type="file" onChange={this.onImageChange.bind(this)} />
-                                                <img src={this.state.image} className="img-artikel" />
+                                                <img src={this.state.imageName} className="img-artikel" />
                                             </div>
                                         </div>
 
                                         <div className="col btn-pad">
-                                            <a className="btn btn-primary btn-width" onClick={() => this.onSaveData()}>Publish</a>
+                                            <a className="btn btn-primary btn-width" onClick={() => {this.onSaveData(); this.onUploadImage()}}>Publish</a>
                                             <a href="/admin/blog" className="btn btn-danger btn-width" style={{marginTop:20}}>Back to blog</a>
                                         </div>
                                     </div>

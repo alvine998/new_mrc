@@ -59,7 +59,7 @@ class Blog extends Component {
                                                     <th scope="row">{res.createdAt.substr(0,10)}</th>
                                                     <td>{res.judul}</td>
                                                     <td>{res.paragraph1}<br/>{res.paragraph2}<br/>{res.paragraph3}</td>
-                                                    <td>{res.gambar}</td>
+                                                    <td><img src={`http://localhost:4000/upload/images/${res.gambar}`} className="img-blog" /></td>
                                                     <td>
                                                         <a className="btn btn-success" style={{ marginBottom: 10 }} >Ubah</a><br/>
                                                         <a className="btn btn-danger" >Hapus</a>
