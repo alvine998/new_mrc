@@ -31,6 +31,10 @@ class Blog extends Component {
         )
     }
 
+    async sendData(id){
+        await localStorage.setItem('idKey', id)
+    }
+
     componentDidMount() {
         this.getDataArtikel();
     }
@@ -54,8 +58,9 @@ class Blog extends Component {
                                 <table class="table table-responsive table-bordered">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Tanggal Publish</th>
+                                            <th scope="col">Tanggal</th>
                                             <th scope="col">Judul</th>
+                                            <th scope="col">Penulis</th>
                                             <th scope="col">Isi Artikel</th>
                                             <th scope="col">Gambar</th>
                                             <th scope="col">Status</th>
@@ -68,11 +73,12 @@ class Blog extends Component {
                                                 return <tr key={i}>
                                                     <th>{res.createdAt.substr(0,10)}</th>
                                                     <td>{res.judul}</td>
-                                                    <td>{res.paragraph1}<br/>{res.paragraph2}<br/>{res.paragraph3}</td>
+                                                    <td>{res.penulis}</td>
+                                                    <td>{res.paragraph1.substr(0,20)} ...<br/>{res.paragraph2.substr(0,20)} ...<br/>{res.paragraph3.substr(0,20)} ...</td>
                                                     <th><img src={`http://localhost:4000/upload/images/${res.gambar}`} className="img-blog" /></th>
                                                     <td>{res.status}</td>
                                                     <td>
-                                                        <a className="btn btn-success" style={{ marginBottom: 10 }} >Ubah</a><br/>
+                                                        <a className="btn btn-success" onClick={() => {this.sendData(res._id);}} href="/admin/edit-artikel" style={{ marginBottom: 10 }} >Ubah</a><br/>
                                                         <a className="btn btn-danger" onClick={() => this.deleteArtikel(res._id)} >Hapus</a>
                                                     </td>
                                                 </tr>

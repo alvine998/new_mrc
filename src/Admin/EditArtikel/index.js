@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import "./tambahartikel.css"
 import NavAdmin from '../../components/NavAdmin';
 import Sidebar from '../../components/Sidebar';
 import axios from 'axios';
 import swal from 'sweetalert';
 
-class TambahArtikel extends Component {
+class EditArtikel extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,8 +16,30 @@ class TambahArtikel extends Component {
             paragraph2: '',
             paragraph3: '',
             status: 'published',
-            penulis: ''
+            penulis: '',
+            id:'',
+            gambar:''
         };
+    }
+
+    getDataId(){
+        let id = localStorage.getItem('idKey')
+        console.log(id)
+        this.setState({id})
+        axios.get(`http://localhost:4000/artikels/${id}`).then(
+            res => {
+                console.log(res.data);
+                const data = res.data;
+                this.setState({
+                    judul: data.judul,
+                    penulis: data.penulis,
+                    gambar: data.gambar,
+                    paragraph1: data.paragraph1,
+                    paragraph2: data.paragraph2,
+                    paragraph3: data.paragraph3
+                })
+            }
+        )
     }
 
     onChangeJudul(e) {
@@ -34,11 +55,6 @@ class TambahArtikel extends Component {
             let img = e.target.files[0]
             this.setState({ image: img, imageName: URL.createObjectURL(img) })
         }
-    }
-
-    onPublish() {
-        this.setState({ status: 'published' })
-        console.log(this.state.status)
     }
 
     onChangeParagraph1(e) {
@@ -58,6 +74,11 @@ class TambahArtikel extends Component {
         console.log(this.state.status)
     }
 
+    onPublish() {
+        this.setState({ status: 'published' })
+        console.log(this.state.status)
+    }
+
     onUploadImage() {
         let formdata = new FormData()
         formdata.append("gambar", this.state.image)
@@ -71,10 +92,11 @@ class TambahArtikel extends Component {
 
     componentDidMount() {
         this.onDontPublish();
+        this.getDataId();
         this.onPublish();
     }
 
-    onSaveData(e) {
+    onUpdateData(e) {
         if (!this.state.judul) {
             alert("Harap isi judul artikel")
         } else if (!this.state.penulis) {
@@ -84,8 +106,6 @@ class TambahArtikel extends Component {
         } else if (!this.state.paragraph2) {
             alert("Harap isi paragraph 2 artikel")
         } else {
-
-
             const data = {
                 judul: this.state.judul,
                 gambar: 'gambar-' + this.state.image.name,
@@ -97,9 +117,9 @@ class TambahArtikel extends Component {
             }
             console.log("Kirim : ", data)
 
-            axios.post(`http://localhost:4000/artikels/`, data).then(
+            axios.put(`http://localhost:4000/artikels/${this.state.id}`, data).then(
                 res => {
-                    console.log("Sukses Save : ", res.data)
+                    console.log("Sukses Update : ", res.data)
                     this.setState({ judul: '', gambar: null, paragraph1: '', paragraph2: '', paragraph3: '' })
                     swal("Sukses Publish", { icon: 'success', buttons: () => { this.props.history.push('/admin/blog') } })
 
@@ -127,24 +147,30 @@ class TambahArtikel extends Component {
                                         <div className="col">
                                             <div className="judul-width">
                                                 <h5 style={{ float: 'left' }}>Judul</h5>
-                                                <input className="form-control form-control-lg" onChange={this.onChangeJudul.bind(this)} type="text" placeholder="Tulis disini ..." />
+                                                <input className="form-control form-control-lg" value={this.state.judul} onChange={this.onChangeJudul.bind(this)} type="text" placeholder="Tulis disini ..." />
                                             </div>
 
                                             <div className="judul-width" style={{ paddingTop: 20 }}>
                                                 <h5 style={{ float: 'left' }}>Penulis</h5>
-                                                <input className="form-control form-control-lg" onChange={this.onChangePenulis.bind(this)} type="text" placeholder="Nama lengkap" />
+                                                <input className="form-control form-control-lg" value={this.state.penulis} onChange={this.onChangePenulis.bind(this)} type="text" placeholder="Nama lengkap" />
                                             </div>
 
                                             <div className="judul-width" style={{ paddingTop: 20 }}>
                                                 <h5 style={{ float: 'left' }}>Tambah Gambar</h5>
                                                 <input className="form-control form-control-sm" type="file" onChange={this.onImageChange.bind(this)} />
-                                                <img src={this.state.imageName} className="img-artikel" />
+                                                {
+                                                    this.state.gambar ? (
+                                                        <img src={this.state.imageName} className="img-artikel" />
+                                                    ) : (
+                                                        <img src={`http://localhost:4000/upload/images/${this.state.gambar}`} className="img-artikel" />
+                                                    )
+                                                }
                                             </div>
                                         </div>
 
                                         <div className="col btn-pad">
-                                            <a className="btn btn-primary btn-width" onClick={() => { this.onSaveData(); this.onUploadImage(); this.onPublish() }}>Publish</a>
-                                            <a onClick={() => { this.onDontPublish(); this.onSaveData(); this.onUploadImage() }} className="btn btn-secondary btn-width" style={{ marginTop: 20 }}>Save don't publish</a>
+                                            <a className="btn btn-primary btn-width" onClick={() => { this.onUpdateData(); this.onUploadImage(); this.onPublish() }}>Publish</a>
+                                            <a onClick={() => { this.onDontPublish(); this.onUpdateData(); this.onUploadImage() }} className="btn btn-secondary btn-width" style={{ marginTop: 20 }}>Save don't publish</a>
                                             <a href="/admin/blog" className="btn btn-danger btn-width" style={{ marginTop: 20 }}>Back to blog</a>
                                         </div>
                                     </div>
@@ -153,17 +179,17 @@ class TambahArtikel extends Component {
 
                                 <div className="judul-width-lg" style={{ paddingTop: 20 }}>
                                     <h5 style={{ float: 'left' }}>Paragpraph 1</h5>
-                                    <textarea className="form-control" onChange={this.onChangeParagraph1.bind(this)} style={{ height: 200 }} type="text" />
+                                    <textarea className="form-control" value={this.state.paragraph1} onChange={this.onChangeParagraph1.bind(this)} style={{ height: 200 }} type="text" />
                                 </div>
 
                                 <div className="judul-width-lg" style={{ paddingTop: 20 }}>
                                     <h5 style={{ float: 'left' }}>Paragpraph 2</h5>
-                                    <textarea className="form-control form-control" onChange={this.onChangeParagraph2.bind(this)} style={{ height: 200 }} type="text" />
+                                    <textarea className="form-control form-control" value={this.state.paragraph2} onChange={this.onChangeParagraph2.bind(this)} style={{ height: 200 }} type="text" />
                                 </div>
 
                                 <div className="judul-width-lg" style={{ paddingTop: 20 }}>
                                     <h5 style={{ float: 'left' }}>Paragpraph 3 (Opsional)</h5>
-                                    <textarea className="form-control form-control" onChange={this.onChangeParagraph3.bind(this)} style={{ height: 200 }} type="text" />
+                                    <textarea className="form-control form-control" value={this.state.paragraph3} onChange={this.onChangeParagraph3.bind(this)} style={{ height: 200 }} type="text" />
                                 </div>
                             </form>
                         </div>
@@ -174,4 +200,4 @@ class TambahArtikel extends Component {
     }
 }
 
-export default TambahArtikel;
+export default EditArtikel;

@@ -14,6 +14,7 @@ class Home extends Component {
         this.state = {
             dummy: "https://dummyimage.com/16:9x1080",
             collectionBanner: [],
+            publish: [],
             dummyCard: "https://dummyimage.com/286x180",
             dummyOwl: "https://dummyimage.com/350x350",
             vector1: 'https://image.freepik.com/free-vector/webinar-concept-illustration_114360-4764.jpg'
@@ -25,14 +26,25 @@ class Home extends Component {
             res => {
                 const collectionBanner = res.data;
                 this.setState({ collectionBanner })
-                console.log(collectionBanner.map((ress,i) => i))
+                console.log(collectionBanner.map((ress, i) => i))
             }
         )
     }
 
     componentDidMount() {
-        this.getBanner()
+        this.getBanner();
+        this.getDataPublished();
     }
+
+    getDataPublished() {
+        axios.get(`http://localhost:4000/artikels/published`).then(
+            res => {
+                const publish = res.data;
+                this.setState({ publish })
+            }
+        )
+    }
+
     render() {
         return (
             <div className="loader">
@@ -131,6 +143,22 @@ class Home extends Component {
                     <center style={{ paddingTop: 20, paddingBottom: 20 }}>
                         <h2 style={{ paddingBottom: 20 }}><u>Artikel</u></h2>
                         <div className="row row-cols-1 row-cols-md-3 g-2">
+                            {
+                                this.state.publish.reverse().map((result, i) => {
+                                    return (
+                                        <div key={i} className="col">
+                                            <div class="card h-100" className="cardImg">
+                                                <img src={`http://localhost:4000/upload/images/${result.gambar}`} class="card-img-top sized" alt="..." />
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{result.judul}</h5>
+                                                    <p class="card-text">{result.paragraph1.substr(0,20)}</p>
+                                                    <a href="#" class="btn btn-primary colortrue">Lihat</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                             <div className="col">
                                 <div class="card h-100" className="cardImg">
                                     <img src={this.state.dummyCard} class="card-img-top" alt="..." />
