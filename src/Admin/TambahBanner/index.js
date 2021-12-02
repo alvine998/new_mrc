@@ -63,6 +63,7 @@ class TambahBanner extends Component {
                             <div>
                                 <h5 style={{float:'left'}}>Input Gambar</h5>
                                 <input type="file" className="form-control" onChange={this.onImageChange.bind(this)}/>
+                                <p style={{float:'left'}}>* Ukuran banner 1920 x 1080 px atau 1280 x 720 px</p>
                             </div>
                             <div style={{marginTop:20}}>
                                 <img src={this.state.imageName} className="img-banner" />
