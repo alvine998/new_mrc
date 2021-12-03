@@ -1,0 +1,40 @@
+.namapt{
+    width: 400px;
+}
+
+.alamatpt{
+    width: 400px;
+    padding-top: 20px;
+}
+
+.alamat{
+    height: 150px;
+}
+
+.deskripsipt{
+    padding-top: 20px;
+}
+
+.img-logo{
+    width: 400px;
+    height: 200px;
+    margin-top: 10px;
+}
+
+.btn-simpan{
+    width: 400px;
+    margin-top: 30px;
+    float: left;
+}
+
+.btn-bawah{
+    margin-top: 30px;
+}
+
+.btn-ok{
+    width: 500px;
+}
+
+.tentang-ust{
+    height: 250px;
+}

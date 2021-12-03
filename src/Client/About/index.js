@@ -22,6 +22,7 @@ class About extends Component {
                     </div>
 
                     {/* Definisi MRC */}
+                    <h2><u>Profil MRC Therapy</u></h2>
                     <div className="container">
                         <div className="row">
                             <div className="col">
@@ -39,22 +40,17 @@ class About extends Component {
 
                     {/* Our team */}
                     <div>
-                        <h2><u>Our Team</u></h2>
+                        <h2><u>Pimpinan MRC Therapy</u></h2>
                         <div className="container">
                             <div className="row">
-                                <div className="col-4">
-                                    <div className="box-our-team">
-                                        <h5>Pak Denny</h5>
+                                <div className="col">
+                                    <div className="square-mrc-about">
+                                        <h5>Tentang Ust Denny</h5>
                                     </div>
                                 </div>
-                                <div className="col-4">
-                                    <div className="box-our-team">
-                                        <h5>Alvine</h5>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="box-our-team">
-                                        <h5>Bagas</h5>
+                                <div className="col-5">
+                                    <div className="square-mrc-about">
+                                        <h5>Image</h5>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +60,7 @@ class About extends Component {
 
                 {/* Footer */}
                 <div>
-                    <Footer/>
+                    <Footer />
                 </div>
             </div>
         );

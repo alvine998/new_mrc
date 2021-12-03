@@ -17,6 +17,7 @@ import Video from './Client/Video';
 import TambahArtikel from './Admin/TambahArtikel';
 import TambahBanner from './Admin/TambahBanner';
 import EditArtikel from './Admin/EditArtikel';
+import Profil from './Admin/Profil';
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
           <Route path="/admin/edit-artikel" element={<EditArtikel/>} />
           <Route path="/admin/banner" element={<Banner/>} />
           <Route path="/admin/tambah-banner" element={<TambahBanner/>} />
+          <Route path="/admin/profil" element={<Profil/>} />
+
         </Routes>
       </BrowserRouter>
     </div>
