@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./program.css"
-import { foto_ruqyah, mrc_logo } from '../../assets';
+import { foto_ruqyah, mrc_logo, terapi } from '../../assets';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
@@ -35,7 +35,7 @@ class Program extends Component {
         return (
             <div>
                 <div className="box-image-terapi">
-                    <h5>Coming Soon</h5>
+                    <img src={terapi} className="img-terapi"/>
                     <p>
                         Coming Soon
                     </p>

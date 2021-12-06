@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { mrc_logo } from '../../assets';
 import Footer from '../../components/Footer';
@@ -7,8 +8,25 @@ import "./artikel.css"
 class Artikel extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            collection: []
+        };
     }
+
+    getDataArtikels() {
+        axios.get(`http://localhost:4000/artikels`).then(
+            res => {
+                const collection = res.data;
+                console.log(collection);
+                this.setState({ collection })
+            }
+        )
+    }
+
+    componentDidMount() {
+        this.getDataArtikels();
+    }
+
     render() {
         return (
             <div>
@@ -18,11 +36,11 @@ class Artikel extends Component {
                     <Navbar blog="active" />
                 </div>
 
-                <div className="imgContainer-about">
+                {/* <div className="imgContainer-about">
                     <img src={mrc_logo} />
-                </div>
+                </div> */}
 
-                <div style={{ paddingBottom: 20 }}>
+                <div style={{ paddingBottom: 20, paddingTop: 70 }}>
                     <h2><u>Artikel MRC Therapy</u></h2>
                 </div>
 
@@ -67,6 +85,50 @@ class Artikel extends Component {
                         </div>
                     </div>
                 </div>
+
+                {
+                    this.state.collection.reverse().map((result, i) => {
+                        return (
+                            <div key={i} className="container">
+                                <div className="box-artikels">
+                                    <div className="row">
+                                        <div className="col-2">
+                                            <img className="img-artikels" src={`http://localhost:4000/upload/images/${result.gambar}`} />
+                                        </div>
+                                        <div className="col">
+                                            <h5 style={{fontWeight:'bold'}}>{result.judul}</h5>
+                                            <p style={{textAlign:'justify', padding:20}}>
+                                                {result.paragraph1.substr(0,200)}....
+                                            </p>
+                                        </div>
+                                        <div className="col-2">
+                                            <a className="btn btn-primary w-100 margin-img-artikels">Baca</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+
+                {/* <div className="container">
+                    <div className="box-artikels">
+                        <div className="row">
+                            <div className="col-2">
+                                <img className="img-artikels" />
+                            </div>
+                            <div className="col">
+                                <h5>Judul</h5>
+                                <p>
+                                    Preview
+                                </p>
+                            </div>
+                            <div className="col-2">
+                                <a className="btn btn-primary w-100 margin-img-artikels">Baca</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
 
                 {/* Footer */}
                 <div>

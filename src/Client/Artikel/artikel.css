@@ -22,3 +22,25 @@
 .box-img-artikel2:hover {
     opacity: 1;
 }
+
+.img-artikels{
+    width: 150px;
+    height: 150px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.margin-img-artikels{
+    margin-top: 100px;
+}
+
+.box-artikels {
+    width: 92%;
+    height: 200px;
+    background-color: blanchedalmond;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    transition: 0.5s;
+    padding: 30px;
+    box-shadow: 5px 10px #dfdfdf;
+}

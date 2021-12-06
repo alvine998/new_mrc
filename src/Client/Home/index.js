@@ -80,10 +80,10 @@ class Home extends Component {
                                     return (
                                         <div className={"carousel-item " + (i == 0 ? "active" : "")}>
                                             <img src={`http://localhost:4000/upload/images/${res.gambar}`} class="d-block w-100 h-20" alt="..." />
-                                            <div class="carousel-caption d-none d-md-block">
+                                            {/* <div class="carousel-caption d-none d-md-block">
                                                 <h5>{res.gambar}</h5>
                                                 <p>{res.gambar}</p>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     )
                                 })
@@ -141,25 +141,27 @@ class Home extends Component {
 
                     {/* Blog Start */}
                     <center style={{ paddingTop: 20, paddingBottom: 20 }}>
-                        <h2 style={{ paddingBottom: 20 }}><u>Artikel</u></h2>
+                        <h2><u>Artikel</u></h2>
                         <div className="row row-cols-1 row-cols-md-3 g-2">
                             {
                                 this.state.publish.reverse().map((result, i) => {
-                                    return (
-                                        <div key={i} className="col">
-                                            <div class="card h-100" className="cardImg">
-                                                <img src={`http://localhost:4000/upload/images/${result.gambar}`} class="card-img-top sized" alt="..." />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{result.judul}</h5>
-                                                    <p class="card-text">{result.paragraph1.substr(0,20)}</p>
-                                                    <a href="#" class="btn btn-primary colortrue">Lihat</a>
+                                    while (i < 3) {
+                                        return (
+                                            <div key={i} className="col">
+                                                <div class="card h-100" className="cardImg">
+                                                    <img src={`http://localhost:4000/upload/images/${result.gambar}`} class="card-img-top sized" alt="..." />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{result.judul}</h5>
+                                                        <p class="card-text">{result.paragraph1.substr(0, 20)}</p>
+                                                        <a href="#" class="btn btn-primary colortrue">Lihat</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    )
+                                        )
+                                    }
                                 })
                             }
-                            <div className="col">
+                            {/* <div className="col">
                                 <div class="card h-100" className="cardImg">
                                     <img src={this.state.dummyCard} class="card-img-top" alt="..." />
                                     <div class="card-body">
@@ -188,7 +190,7 @@ class Home extends Component {
                                         <a href="#" class="btn btn-primary colortrue">Go somewhere</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                     </center>

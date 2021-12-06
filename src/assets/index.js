@@ -7,8 +7,7 @@ import tktk from './images/tktk.png';
 import foto_ruqyah from './images/foto_ruqyah.png';
 import ruqyah_umi from './images/ruqyah_umi.png';
 import ust_denny from './images/ust_denny.png';
-
-
+import terapi from './images/terapi.png';
 
 export {
     mrc_logo,
@@ -19,5 +18,6 @@ export {
     tktk,
     foto_ruqyah,
     ruqyah_umi,
-    ust_denny
+    ust_denny,
+    terapi
 }

@@ -13,6 +13,14 @@
     padding: 20px;
 }
 
+.position-collapse{
+    float: left;
+}
+
+.text-position{
+    text-align: justify;
+}
+
 .paragh-about{
     padding-top: 20px;
     text-align: justify;
@@ -26,6 +34,21 @@
     padding-top: 20px;
     text-align: justify;
     line-height: 30px;
+}
+
+.p-hover:hover{
+    color:rgb(176, 44, 194) ;
+    transition: 0.5s;
+}
+
+.p-hover{
+    transition: 0.5s;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.faq-bot{
+    padding-bottom: 50px;
 }
 
 .box-our-team {

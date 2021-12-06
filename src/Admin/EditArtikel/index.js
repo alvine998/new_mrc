@@ -105,6 +105,25 @@ class EditArtikel extends Component {
             alert("Harap isi paragraph 1 artikel")
         } else if (!this.state.paragraph2) {
             alert("Harap isi paragraph 2 artikel")
+        } else if (!this.state.image || !this.state.imageName) {
+            const data = {
+                judul: this.state.judul,
+                paragraph1: this.state.paragraph1,
+                paragraph2: this.state.paragraph2,
+                paragraph3: this.state.paragraph3,
+                status: this.state.status,
+                penulis: this.state.penulis
+            }
+            console.log("Kirim : ", data)
+
+            axios.put(`http://localhost:4000/artikels/${this.state.id}`, data).then(
+                res => {
+                    console.log("Sukses Update : ", res.data)
+                    this.setState({ judul: '', gambar: null, paragraph1: '', paragraph2: '', paragraph3: '' })
+                    swal("Sukses Publish", { icon: 'success', buttons: () => { this.props.history.push('/admin/blog') } })
+
+                }
+            )
         } else {
             const data = {
                 judul: this.state.judul,
@@ -116,7 +135,7 @@ class EditArtikel extends Component {
                 penulis: this.state.penulis
             }
             console.log("Kirim : ", data)
-
+            this.onUploadImage();
             axios.put(`http://localhost:4000/artikels/${this.state.id}`, data).then(
                 res => {
                     console.log("Sukses Update : ", res.data)
@@ -169,7 +188,7 @@ class EditArtikel extends Component {
                                         </div>
 
                                         <div className="col btn-pad">
-                                            <a className="btn btn-primary btn-width" onClick={() => { this.onUpdateData(); this.onUploadImage(); this.onPublish() }}>Publish</a>
+                                            <a className="btn btn-primary btn-width" onClick={() => { this.onUpdateData(); this.onPublish() }}>Publish</a>
                                             <a onClick={() => { this.onDontPublish(); this.onUpdateData(); this.onUploadImage() }} className="btn btn-secondary btn-width" style={{ marginTop: 20 }}>Save don't publish</a>
                                             <a href="/admin/blog" className="btn btn-danger btn-width" style={{ marginTop: 20 }}>Back to blog</a>
                                         </div>
