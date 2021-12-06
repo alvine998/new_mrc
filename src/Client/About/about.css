@@ -13,6 +13,21 @@
     padding: 20px;
 }
 
+.paragh-about{
+    padding-top: 20px;
+    text-align: justify;
+    line-height: 30px;
+}
+
+.bottom-about{
+    padding-bottom: 50px;
+}
+.paragh-ust{
+    padding-top: 20px;
+    text-align: justify;
+    line-height: 30px;
+}
+
 .box-our-team {
     width: 100%;
     height: 400px;

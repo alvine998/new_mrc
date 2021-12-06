@@ -4,6 +4,10 @@ import yt from './images/yt.png';
 import ig from './images/ig.png';
 import fb from './images/fb.png';
 import tktk from './images/tktk.png';
+import foto_ruqyah from './images/foto_ruqyah.png';
+import ruqyah_umi from './images/ruqyah_umi.png';
+import ust_denny from './images/ust_denny.png';
+
 
 
 export {
@@ -12,5 +16,8 @@ export {
     yt,
     ig,
     fb,
-    tktk
+    tktk,
+    foto_ruqyah,
+    ruqyah_umi,
+    ust_denny
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./program.css"
-import { mrc_logo } from '../../assets';
+import { foto_ruqyah, mrc_logo } from '../../assets';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
@@ -8,36 +8,48 @@ class Program extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            btns:'ruqyah'
+            btns: 'ruqyah'
         };
     }
 
-    renderRuqyah(){
-        return(
+    renderRuqyah() {
+        return (
             <div>
                 <div className="box-image-ruqyah">
-                    <h5>Image Ruqyah</h5>
+                    <img src={foto_ruqyah} className="img-ruqyah" />
+                    <p className="paragh-pad">
+                        Muslimah Ruqyah Center adalah sebuah perusahaan yang Didirikan sejak tahun 2005
+                        yang kini telah tersebar di Seluruh Pulau Jawa.
+                        Bergerak di bidang Dakwah dan pengobatan melalui metode Al-Qur’an
+                        yang sering disebut dengan Ruqyah Syar’iyyah. <br/>
+                        Sebagai penunjang penyembuhan, Kami menggunakan obat-obat herbal 
+                        yang sesuai dengan anjuran Nabi seperti serbuk bidara, minyak zaitun, 
+                        kurma aliyah, air zam-zam, madu, serta garam himalaya.
+                    </p>
                 </div>
             </div>
         )
     }
 
-    renderTerapi(){
-        return(
+    renderTerapi() {
+        return (
             <div>
                 <div className="box-image-terapi">
-                    <h5>Image Terapi</h5>
+                    <h5>Coming Soon</h5>
+                    <p>
+                        Coming Soon
+                    </p>
                 </div>
             </div>
         )
     }
 
-    onRuqyah(){
-        this.setState({btns: 'ruqyah'})
+    onRuqyah() {
+        this.setState({ btns: 'ruqyah' })
     }
 
-    onTerapi(){
-        this.setState({btns: 'terapi'})
+    onTerapi() {
+        this.setState({ btns: 'terapi' })
     }
 
     render() {
@@ -55,7 +67,7 @@ class Program extends Component {
                     <h2><u>Program MRC Therapy</u></h2>
 
                     {/* Card Program */}
-                    <div className="container" style={{paddingTop:20, paddingBottom:100}}>
+                    <div className="container" style={{ paddingTop: 20, paddingBottom: 100 }}>
                         <div className="row">
                             <div className="col-3">
                                 <a><button onClick={() => this.onRuqyah()} className={"btn-ruqyah " + (this.state.btns == 'ruqyah' ? 'actived' : "")}>Ruqyah Terapi Syar'i</button></a>
@@ -79,7 +91,7 @@ class Program extends Component {
 
                 {/* Footer */}
                 <div>
-                    <Footer/>
+                    <Footer />
                 </div>
             </div>
         );

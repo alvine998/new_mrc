@@ -40,6 +40,20 @@
     box-shadow: 5px 10px #dfdfdf;
     margin-top: 10px;
     border-radius: 20px;
+    padding: 20px;
+}
+
+.img-ruqyah{
+    width: 500px;
+    height: 350px;
+    margin-bottom: -50px;
+    margin-top: -50px;
+}
+
+.paragh-pad{
+    padding-right: 100px;
+    padding-left: 100px;
+    line-height: 30px;
 }
 
 .actived {
@@ -55,4 +69,5 @@
     margin-top: 10px;
     border-radius: 20px;
     transition: ease-in;
+    padding: 20px;
 }

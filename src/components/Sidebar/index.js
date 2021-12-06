@@ -14,6 +14,8 @@ class Sidebar extends Component {
                     <a href="/admin/blog" className={"nav-link a-sidebar " + (this.props.blog ? "active" : "")}><i className="fa fa-pencil"></i> Blog</a>
                     <a href="/admin/banner" className={"nav-link a-sidebar " + (this.props.banner ? "active" : "")}><i className="fa fa-picture-o"></i> Banner</a>
                     <a href="/admin/profil" className={"nav-link a-sidebar " + (this.props.profil ? "active" : "")}><i className="fa fa-user"></i> Profil</a>
+                    <a href="/admin/profil" className={"nav-link a-sidebar " + (this.props.programs ? "active" : "")}><i className="fa fa-building"></i> Program</a>
+
                     <div className="nav-link a-sidebar dropdown">
                         <a href="#" className="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="fa fa-picture-o"></i> Galeri</a>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
