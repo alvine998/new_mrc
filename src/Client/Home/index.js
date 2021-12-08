@@ -7,6 +7,7 @@ import OwlCarousel from "react-owl-carousel";
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import axios from "axios";
+import { consult, envelopes, herbal, houses, icon_1 } from "../../assets";
 
 class Home extends Component {
     constructor(props) {
@@ -120,20 +121,95 @@ class Home extends Component {
                     </div>
 
                     {/* Mengapa Harus MRC Therapy */}
-                    <div style={{ paddingTop: 20 }}>
-                        <h2><u>Mengapa Harus MRC Therapy ? </u></h2>
+                    <div style={{ paddingTop: 0 }}>
                         <div className="square-why">
+                        <h2 style={{paddingBottom:20}}><u>Mengapa Harus MRC Therapy ? </u></h2>
                             <OwlCarousel items={3}
                                 className="owl-theme"
                                 loop
                                 nav
                                 margin={8}
                             >
-                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
-                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
-                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
-                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
-                                <div className="item"><img className="img" src={this.state.dummyOwl} /></div>
+                                <div className="item">
+                                    <div className="img">
+                                        <div className="flip-card">
+                                            <div className="flip-card-inner">
+                                                <div className="flip-card-front">
+                                                    <img src={envelopes} className="w-100" />
+                                                </div>
+                                                <div className="flip-card-back">
+                                                    <h2>Langsung Ditangani Oleh Ahlinya</h2>
+                                                    <p>
+                                                        Pelayanan langsung ditangani oleh pimpinan MRC
+                                                        yaitu Ust. Adrian Ibrahim atau Kang Denny bukan 
+                                                        oleh asisten atau wakilnya.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* #2 item */}
+                                <div className="item">
+                                    <div className="img">
+                                        <div className="flip-card">
+                                            <div className="flip-card-inner">
+                                                <div className="flip-card-front">
+                                                    <img src={herbal} className="w-100" />
+                                                </div>
+                                                <div className="flip-card-back">
+                                                    <h2>Menggunakan Obat Herbal Alami</h2>
+                                                    <p>
+                                                        Pengobatan MRC menggunakan herbal yang teruji
+                                                        dan sesuai syar'i sehingga tidak ada hal-hal
+                                                        yang melanggar hukum islam.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* #3 item */}
+                                <div className="item">
+                                    <div className="img">
+                                        <div className="flip-card">
+                                            <div className="flip-card-inner">
+                                                <div className="flip-card-front">
+                                                    <img src={houses} className="w-100" />
+                                                </div>
+                                                <div className="flip-card-back">
+                                                    <h2>Therapy di Rumah</h2>
+                                                    <p>
+                                                        Therapy di MRC kini dapat dilakukan di rumah Anda
+                                                        dengan melakukan booking untuk menentukan jadwal terlebih dahulu. 
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* #4 item */}
+                                <div className="item">
+                                    <div className="img">
+                                        <div className="flip-card">
+                                            <div className="flip-card-inner">
+                                                <div className="flip-card-front">
+                                                    <img src={consult} className="w-100" />
+                                                </div>
+                                                <div className="flip-card-back">
+                                                    <h2>Konsultasi Aman dan Nyaman</h2>
+                                                    <p>
+                                                        Anda dapat berkonsultasi tentang berbagai masalah
+                                                        kehidupan, asmara, bisnis, dan lain-lain.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </OwlCarousel>
                         </div>
@@ -152,7 +228,7 @@ class Home extends Component {
                                                     <img src={`http://localhost:4000/upload/images/${result.gambar}`} class="card-img-top sized" alt="..." />
                                                     <div class="card-body">
                                                         <h5 class="card-title">{result.judul}</h5>
-                                                        <p class="card-text">{result.paragraph1.substr(0, 20)}</p>
+                                                        {/* <p class="card-text">{result.paragraph1.substr(0, 20)}</p> */}
                                                         <a href="#" class="btn btn-primary colortrue">Lihat</a>
                                                     </div>
                                                 </div>
@@ -195,6 +271,11 @@ class Home extends Component {
 
                     </center>
                     {/* Blog End */}
+
+                    {/* Download MRC App */}
+                    <div>
+                        
+                    </div>
                 </div>
                 <Footer />
             </div>

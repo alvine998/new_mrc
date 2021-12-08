@@ -12,6 +12,37 @@
     margin-left: 15px;
 }
 
+.centering{
+    margin-left: 0px;
+}
+
+.rotating{
+    -webkit-animation: spin 4s linear;
+    -moz-animation: spin 4s linear;
+    animation: spin 4s linear;
+}
+
+
+
+@-moz-keyframes spin {
+    100% {-moz-transform: rotate(180deg);}
+}
+
+@-webkit-keyframes spin {
+    100% {-webkit-transform: rotate(180deg);}
+}
+
+@keyframes spin{
+    100% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+.color-card{
+    background-color: rgb(155, 155, 155);
+    border-color: transparent;
+}
+
 .active {
     color: rgb(32, 32, 238);
 }

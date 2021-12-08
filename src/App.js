@@ -18,6 +18,8 @@ import TambahArtikel from './Admin/TambahArtikel';
 import TambahBanner from './Admin/TambahBanner';
 import EditArtikel from './Admin/EditArtikel';
 import Profil from './Admin/Profil';
+import VideoAdmin from './Admin/Video';
+import FotoAdmin from './Admin/Foto';
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
           <Route path="/admin/banner" element={<Banner/>} />
           <Route path="/admin/tambah-banner" element={<TambahBanner/>} />
           <Route path="/admin/profil" element={<Profil/>} />
+          <Route path="/admin/galeri-video" element={<VideoAdmin/>} />
+          <Route path="/admin/galeri-foto" element={<FotoAdmin/>} />
 
         </Routes>
       </BrowserRouter>

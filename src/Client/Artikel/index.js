@@ -47,12 +47,21 @@ class Artikel extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-5">
-                            <a href="/artikel/isi-artikel">
-                                <div className="box-img-artikel">
-                                    <h5>Image Artikel</h5>
-                                    <h5>Artikel</h5>
-                                </div>
-                            </a>
+                            {
+                                this.state.collection.reverse() && this.state.collection.map((res, i) => {
+                                    while (i < 1) {
+                                        return (
+                                            <a key={i} href="/artikel/isi-artikel">
+                                                <div className="box-img-artikel">
+                                                    <img className="img-artikels w-100 h-100" src={`http://localhost:4000/upload/images/${res.gambar}`} />
+                                                    <h5 className="judul-artikel">{res.judul}</h5>
+                                                </div>
+                                            </a>
+                                        )
+                                    }
+                                })
+                            }
+
                         </div>
                         <div className="col-3">
                             <a href="/artikel/isi-artikel">
@@ -87,7 +96,7 @@ class Artikel extends Component {
                 </div>
 
                 {
-                    this.state.collection.reverse().map((result, i) => {
+                    this.state.collection.map((result, i) => {
                         return (
                             <div key={i} className="container">
                                 <div className="box-artikels">
@@ -96,9 +105,9 @@ class Artikel extends Component {
                                             <img className="img-artikels" src={`http://localhost:4000/upload/images/${result.gambar}`} />
                                         </div>
                                         <div className="col">
-                                            <h5 style={{fontWeight:'bold'}}>{result.judul}</h5>
-                                            <p style={{textAlign:'justify', padding:20}}>
-                                                {result.paragraph1.substr(0,200)}....
+                                            <h5 style={{ fontWeight: 'bold' }}>{result.judul}</h5>
+                                            <p style={{ textAlign: 'justify', padding: 20 }}>
+                                                {result.paragraph1.substr(0, 200)}....
                                             </p>
                                         </div>
                                         <div className="col-2">
