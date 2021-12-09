@@ -35,12 +35,12 @@ class Sidebar extends Component {
                             <div class="card-header" id="headingOne">
                                 <h2 style={{ color: "white" }} class="mb-0">
                                     <button style={{ color: "white" }} onClick={() => this.handleChevron()} class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <i className="fa fa-picture-o"></i> Galeri <i className={"fa " + (this.state.isActive ? "fa-chevron-down" : "fa-chevron-up")}></i>
+                                        <i className="fa fa-picture-o"></i> Galeri <i className={"fa " + (this.state.isActive ? "fa-chevron-up" : "fa-chevron-down")}></i>
                                     </button>
                                 </h2>
                             </div>
 
-                            <div id="collapseOne" class="collapse show a-sidebar" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div id="collapseOne" class="collapse a-sidebar" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
                                     <a style={{ color: "white" }} className={this.props.foto ? "active" : ""} href="/admin/galeri-foto"><i className="fa fa-camera"></i> Foto</a>
                                 </div>
