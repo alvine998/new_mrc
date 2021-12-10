@@ -15,7 +15,8 @@ class IsiArtikel extends Component {
                     <Navbar blog="active" />
                 </div>
 
-                <div className="container" style={{paddingBottom:20}}>
+                <div className="container" style={{ paddingBottom: 20 }}>
+                    <h2>Artikel</h2>
                     <div className="row">
                         <div className="col">
                             <div className="box-img">
@@ -31,7 +32,7 @@ class IsiArtikel extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="row" style={{paddingBottom:20}}>
+                    <div className="row" style={{ paddingBottom: 20 }}>
                         <div className="col">
                             <div className="box-artikel">
                                 <h5>Image</h5>

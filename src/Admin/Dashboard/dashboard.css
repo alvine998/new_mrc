@@ -22,7 +22,7 @@ body{
 
 .latestpost {
     width: 100%;
-    height: 350px;
+    height: 400px;
     background-color: rgb(226, 226, 226);
     padding: 10px;
 }
@@ -42,13 +42,39 @@ body{
 }
 
 .container-dashboard {
-    padding-top: 50px;
+    padding-top: 30px;
+}
+
+.box-effect{
+    transition: 0.5s;
+}
+
+.box-effect:hover{
+    padding-top: 10px;
+}
+
+.img-latepost{
+    width: 100%;
+    height: 100px;
 }
 
 .sider {
     height: 900px;
     width: 15%;
     background-color: rgb(155, 155, 155);
+}
+
+.box-latestpost{
+    background-color: blanchedalmond;
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    box-shadow: 5px 10px #dfdfdf;
+    transition: 0.5s;
+}
+
+.box-latestpost:hover{
+    margin-top: -10px;
 }
 
 .cols {

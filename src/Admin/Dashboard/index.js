@@ -9,21 +9,23 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            jumlah_artikel:0
+            jumlah_artikel: 0,
+            collection: []
         };
     }
 
-    getJumlahArtikel(){
+    getJumlahArtikel() {
         axios.get(`http://localhost:4000/artikels/`).then(
             res => {
                 const collection = res.data;
-                this.setState({jumlah_artikel: collection.length})
+                this.setState({ jumlah_artikel: collection.length })
+                this.setState({ collection })
             }
         )
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         this.getJumlahArtikel();
     }
     render() {
@@ -34,7 +36,7 @@ class Dashboard extends Component {
                         <NavAdmin />
                         <div className="row">
                             <div className="col-2 sider">
-                                <Sidebar dashboard="active"/>
+                                <Sidebar dashboard="active" />
                             </div>
                             <div className="col dash">
 
@@ -88,13 +90,50 @@ class Dashboard extends Component {
                                 <div className="container container-dashboard">
                                     <div className="row">
                                         <div className="col-md-6">
-                                            Latest Post
                                             <div className="latestpost">
                                                 <h4>Post Terbaru</h4>
+                                                <div style={{ paddingTop: 20 }}>
+                                                    {
+                                                        this.state.collection.reverse().map((res, i) => {
+                                                            while (i < 2) {
+                                                                return (
+                                                                    <a key={i} href='#' className='box-effect'>
+                                                                        <div className='box-latestpost' style={{ marginBottom: 10 }}>
+                                                                            <div className='container'>
+                                                                                <div className='row'>
+                                                                                    <div className='col-4'>
+                                                                                        <img className='img-latepost' src={`http://localhost:4000/upload/images/${res.gambar}`} />
+                                                                                    </div>
+                                                                                    <div className='col'>
+                                                                                        <h5>{res.judul}</h5>
+                                                                                        <p style={{ textAlign: 'justify' }}>{res.paragraph1.substr(0, 80)}....</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                )
+                                                            }
+
+                                                        })
+                                                    }
+                                                    {/* <div className='box-latestpost'>
+                                                        <div className='container'>
+                                                            <div className='row'>
+                                                                <div className='col-2'>
+                                                                    <h2>Image</h2>
+                                                                </div>
+                                                                <div className='col'>
+                                                                    <h5>Judul</h5>
+                                                                    <p>Isi artikel</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> */}
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="col-md-6">
-                                            Popular Post
                                             <div className="popularpost">
                                                 <h4>Komentar</h4>
                                             </div>
