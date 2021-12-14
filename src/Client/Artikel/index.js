@@ -23,6 +23,10 @@ class Artikel extends Component {
         )
     }
 
+    async sendIdArtikel(id){
+        await localStorage.setItem('idArtikel', id)
+    }
+
     componentDidMount() {
         this.getDataArtikels();
     }
@@ -51,7 +55,7 @@ class Artikel extends Component {
                                 this.state.collection.reverse() && this.state.collection.map((res, i) => {
                                     while (i < 1) {
                                         return (
-                                            <a key={i} href="/artikel/isi-artikel">
+                                            <a key={i} href={`/artikel/isi-artikel?id=${res._id}`} onClick={()=>this.sendIdArtikel(res._id)}>
                                                 <div className="box-img-artikel">
                                                     <img className="img-artikels w-100 h-100" src={`http://localhost:4000/upload/images/${res.gambar}`} />
                                                     <h5 className="judul-artikel">{res.judul}</h5>
@@ -111,7 +115,7 @@ class Artikel extends Component {
                                             </p>
                                         </div>
                                         <div className="col-2">
-                                            <a className="btn btn-primary w-100 margin-img-artikels">Baca</a>
+                                            <a className="btn btn-primary w-100 margin-img-artikels" href={`/artikel/isi-artikel?id=${result._id}`} onClick={()=>this.sendIdArtikel(result._id)}>Baca</a>
                                         </div>
                                     </div>
                                 </div>

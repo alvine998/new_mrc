@@ -30,11 +30,11 @@ class Video extends Component {
         return (
             <div>
                 <Navbar galeri="active" />
-                <div className="imgContainer-about">
+                {/* <div className="imgContainer-about">
                     <img src={mrc_logo} />
-                </div>
+                </div> */}
 
-                <div className="container" style={{ paddingBottom: 30 }}>
+                <div className="container" style={{ paddingBottom: 30, paddingTop:100 }}>
                     <div>
                         <h2><u>Video</u></h2>
                         <div className="row" style={{ paddingTop: 30 }}>

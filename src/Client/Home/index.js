@@ -7,7 +7,7 @@ import OwlCarousel from "react-owl-carousel";
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import axios from "axios";
-import { consult, envelopes, herbal, houses, icon_1 } from "../../assets";
+import { consult, envelopes, herbal, houses, icon_1, play_store, qr_code } from "../../assets";
 
 class Home extends Component {
     constructor(props) {
@@ -32,6 +32,10 @@ class Home extends Component {
         )
     }
 
+    async sendDataArtikel(id){
+        await localStorage.setItem('idArtikel', id)
+    }
+
     componentDidMount() {
         this.getBanner();
         this.getDataPublished();
@@ -49,33 +53,12 @@ class Home extends Component {
     render() {
         return (
             <div className="loader">
-                <Navbar beranda="active" />
+                <Navbar beranda="active"/>
                 {/* Isi Home */}
                 <div>
                     {/* Carousel Start */}
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            {/* <div class="carousel-item active">
-                                <img src={this.state.dummy} class="d-block w-100" alt="..." />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>First slide label</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src={this.state.dummy} class="d-block w-100" alt="..." />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>First slide label</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src={this.state.dummy} class="d-block w-100" alt="..." />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>First slide label</h5>
-                                    <p>Some representative placeholder content for the first slide.</p>
-                                </div>
-                            </div> */}
                             {
                                 this.state.collectionBanner && this.state.collectionBanner.map((res, i) => {
                                     return (
@@ -224,12 +207,12 @@ class Home extends Component {
                                     while (i < 3) {
                                         return (
                                             <div key={i} className="col">
-                                                <div class="card h-100" className="cardImg">
+                                                <div class="card" className="cardImg">
                                                     <img src={`http://localhost:4000/upload/images/${result.gambar}`} class="card-img-top sized" alt="..." />
                                                     <div class="card-body">
                                                         <h5 class="card-title">{result.judul}</h5>
                                                         {/* <p class="card-text">{result.paragraph1.substr(0, 20)}</p> */}
-                                                        <a href="#" class="btn btn-primary colortrue">Lihat</a>
+                                                        <a href={`/artikel/isi-artikel?id?=${result._id}`} onClick={()=>this.sendDataArtikel(result._id)} class="btn btn-primary colortrue">Lihat</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -268,13 +251,24 @@ class Home extends Component {
                                 </div>
                             </div> */}
                         </div>
-
                     </center>
                     {/* Blog End */}
 
-                    {/* Download MRC App */}
+                    {/* Download MRC */}
                     <div>
-                        
+                        <h2>Download Aplikasi MRC-Therapy</h2>
+                    </div>
+
+                    {/* Download MRC App */}
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-4">
+                                <img src={qr_code} className="size-qr" />
+                            </div>
+                            <div className="col">
+                                <a href="https://play.google.com/store/apps/details?id=com.semesta_mrc2"><img src={play_store}/></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <Footer />

@@ -16,10 +16,7 @@ class About extends Component {
                     <Navbar tentang="active" />
                 </div>
 
-                <div>
-                    <div className="imgContainer-about">
-                        <img src={mrc_logo} />
-                    </div>
+                <div style={{paddingTop:100}}>
 
                     {/* Definisi MRC */}
                     <h2 className="bottom-about"><u>Profil MRC Therapy</u></h2>

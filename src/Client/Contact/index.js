@@ -17,9 +17,9 @@ class Contact extends Component {
                     <Navbar kontak="active" />
                 </div>
 
-                <div className="imgContainer-about">
+                {/* <div className="imgContainer-about">
                     <img src={mrc_logo} />
-                </div>
+                </div> */}
 
                 <div className="container container-contact">
                     <div>

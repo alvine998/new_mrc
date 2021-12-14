@@ -27,7 +27,7 @@ h2 {
 }
 
 .square-why {
-    background-image: linear-gradient(to right, rgb(171, 105, 197), rgb(151, 32, 187));
+    /* background-image: linear-gradient(to right, rgb(171, 105, 197), rgb(151, 32, 187)); */
     height: 650px;
     width: 100%;
     padding: 20px;
@@ -125,6 +125,11 @@ button {
 }
 
 .sized {
+    width: 300px;
+    height: 200px;
+}
+
+.size-qr{
     width: 300px;
     height: 300px;
 }

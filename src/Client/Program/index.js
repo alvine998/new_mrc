@@ -60,11 +60,11 @@ class Program extends Component {
                 </div>
 
                 <div>
-                    <div className="imgContainer-about">
+                    {/* <div className="imgContainer-about">
                         <img src={mrc_logo} />
-                    </div>
+                    </div> */}
 
-                    <h2><u>Program MRC Therapy</u></h2>
+                    <h2 style={{paddingTop:100}}><u>Program MRC Therapy</u></h2>
 
                     {/* Card Program */}
                     <div className="container" style={{ paddingTop: 20, paddingBottom: 100 }}>

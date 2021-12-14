@@ -15,6 +15,8 @@ import envelopes from './icons/envelopes.jpg';
 import herbal from './icons/herbal.jpg';
 import houses from './icons/houses.jpg';
 import consult from './icons/consult.jpg';
+import qr_code from './images/qr_code.jpg';
+import play_store from './images/play_store.png';
 
 
 
@@ -35,5 +37,7 @@ export {
     icon_2,
     icon_3,
     envelopes,
-    herbal
+    herbal,
+    qr_code,
+    play_store
 }
