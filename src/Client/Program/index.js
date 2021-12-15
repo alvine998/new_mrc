@@ -21,9 +21,9 @@ class Program extends Component {
                         Muslimah Ruqyah Center adalah sebuah perusahaan yang Didirikan sejak tahun 2005
                         yang kini telah tersebar di Seluruh Pulau Jawa.
                         Bergerak di bidang Dakwah dan pengobatan melalui metode Al-Qur’an
-                        yang sering disebut dengan Ruqyah Syar’iyyah. <br/>
-                        Sebagai penunjang penyembuhan, Kami menggunakan obat-obat herbal 
-                        yang sesuai dengan anjuran Nabi seperti serbuk bidara, minyak zaitun, 
+                        yang sering disebut dengan Ruqyah Syar’iyyah. <br />
+                        Sebagai penunjang penyembuhan, Kami menggunakan obat-obat herbal
+                        yang sesuai dengan anjuran Nabi seperti serbuk bidara, minyak zaitun,
                         kurma aliyah, air zam-zam, madu, serta garam himalaya.
                     </p>
                 </div>
@@ -35,9 +35,17 @@ class Program extends Component {
         return (
             <div>
                 <div className="box-image-terapi">
-                    <img src={terapi} className="img-terapi"/>
-                    <p>
-                        Coming Soon
+                    <div className='img-padding'>
+                        <img src={terapi} className="img-terapi" />
+                    </div>
+                    <p className='paragh-pad'>
+                        Reposisi Tulang adalah salah satu pengobatan untuk mengembalikan
+                        posisi tulang agar kembali ke posisi semula. Pengobatan ini dapat
+                        terjadi jika seseorang memiliki sakit syaraf kejepit, akibat kecelakaan
+                        motor, patah tulang, dan lain sebagainya.
+                        <br />
+                        Ustadz Denny selain dapat mengobati penyakit spiritual juga dapat menangani
+                        pengobatan reposisi tulang dengan syariat islami dan izin dari Allah tentunya.
                     </p>
                 </div>
             </div>
@@ -64,7 +72,7 @@ class Program extends Component {
                         <img src={mrc_logo} />
                     </div> */}
 
-                    <h2 style={{paddingTop:100}}><u>Program MRC Therapy</u></h2>
+                    <h2 style={{ paddingTop: 100 }}><u>Program MRC Therapy</u></h2>
 
                     {/* Card Program */}
                     <div className="container" style={{ paddingTop: 20, paddingBottom: 100 }}>
