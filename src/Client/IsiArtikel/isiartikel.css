@@ -13,9 +13,8 @@
 
 .box-side {
     width: 100%;
-    height: 100%;
-    background-color: blanchedalmond;
-    margin-top: 100px;
+    background-color: white;
+    margin-top: 50px;
     padding: 20px;
 }
 
@@ -23,8 +22,13 @@
     width: 100%;
     height: 100%;
     background-color: white;
-    margin-top: 20px;
+    margin-top: 50px;
     padding: 20px;
+}
+
+.img-side{
+    width: 100%;
+    height: 150px;
 }
 
 /* .position {

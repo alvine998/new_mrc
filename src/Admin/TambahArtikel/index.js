@@ -36,11 +36,6 @@ class TambahArtikel extends Component {
         }
     }
 
-    onPublish() {
-        this.setState({ status: 'published' })
-        console.log(this.state.status)
-    }
-
     onChangeParagraph1(e) {
         this.setState({ paragraph1: e.target.value })
     }
@@ -51,11 +46,6 @@ class TambahArtikel extends Component {
 
     onChangeParagraph3(e) {
         this.setState({ paragraph3: e.target.value })
-    }
-
-    onDontPublish() {
-        this.setState({ status: 'draft' })
-        console.log(this.state.status)
     }
 
     onUploadImage() {
@@ -69,9 +59,12 @@ class TambahArtikel extends Component {
         )
     }
 
+    onChangeStatus(e){
+        this.setState({status: e.target.value})
+    }
+
     componentDidMount() {
-        this.onDontPublish();
-        this.onPublish();
+   
     }
 
     onSaveData(e) {
@@ -135,6 +128,14 @@ class TambahArtikel extends Component {
                                                 <input className="form-control form-control-lg" onChange={this.onChangePenulis.bind(this)} type="text" placeholder="Nama lengkap" />
                                             </div>
 
+                                            <div style={{ paddingTop: 20 }}>
+                                                <h5 style={{ float: 'left' }}>Status : </h5>
+                                                <select className='form-select' value={this.state.status} onChange={this.onChangeStatus.bind(this)}>
+                                                    <option value={"published"}>Published</option>
+                                                    <option value={"draft"}>Draft</option>
+                                                </select>
+                                            </div>
+
                                             <div className="judul-width" style={{ paddingTop: 20 }}>
                                                 <h5 style={{ float: 'left' }}>Tambah Gambar</h5>
                                                 <input className="form-control form-control-sm" type="file" onChange={this.onImageChange.bind(this)} />
@@ -143,8 +144,7 @@ class TambahArtikel extends Component {
                                         </div>
 
                                         <div className="col btn-pad">
-                                            <a className="btn btn-primary btn-width" onClick={() => { this.onSaveData(); this.onUploadImage(); this.onPublish() }}>Publish</a>
-                                            <a onClick={() => { this.onDontPublish(); this.onSaveData(); this.onUploadImage() }} className="btn btn-secondary btn-width" style={{ marginTop: 20 }}>Save don't publish</a>
+                                            <a className="btn btn-primary btn-width" onClick={() => { this.onSaveData(); this.onUploadImage()}}>Publish</a>
                                             <a href="/admin/blog" className="btn btn-danger btn-width" style={{ marginTop: 20 }}>Back to blog</a>
                                         </div>
                                     </div>

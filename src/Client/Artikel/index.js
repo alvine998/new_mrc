@@ -101,26 +101,28 @@ class Artikel extends Component {
 
                 {
                     this.state.collection.map((result, i) => {
-                        return (
-                            <div key={i} className="container">
-                                <div className="box-artikels">
-                                    <div className="row">
-                                        <div className="col-2">
-                                            <img className="img-artikels" src={`http://localhost:4000/upload/images/${result.gambar}`} />
-                                        </div>
-                                        <div className="col">
-                                            <h5 style={{ fontWeight: 'bold' }}>{result.judul}</h5>
-                                            <p style={{ textAlign: 'justify', padding: 20 }}>
-                                                {result.paragraph1.substr(0, 200)}....
-                                            </p>
-                                        </div>
-                                        <div className="col-2">
-                                            <a className="btn btn-primary w-100 margin-img-artikels" href={`/artikel/isi-artikel?id=${result._id}`} onClick={()=>this.sendIdArtikel(result._id)}>Baca</a>
+                        if(result.status == 'published'){
+                            return (
+                                <div key={i} className="container">
+                                    <div className="box-artikels">
+                                        <div className="row">
+                                            <div className="col-2">
+                                                <img className="img-artikels" src={`http://localhost:4000/upload/images/${result.gambar}`} />
+                                            </div>
+                                            <div className="col">
+                                                <h5 style={{ fontWeight: 'bold' }}>{result.judul}</h5>
+                                                <p style={{ textAlign: 'justify', padding: 20 }}>
+                                                    {result.paragraph1.substr(0, 200)}....
+                                                </p>
+                                            </div>
+                                            <div className="col-2">
+                                                <a className="btn btn-primary w-100 margin-img-artikels" href={`/artikel/isi-artikel?id=${result._id}`} onClick={()=>this.sendIdArtikel(result._id)}>Baca</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
+                            )
+                        }
                     })
                 }
 

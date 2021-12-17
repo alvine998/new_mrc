@@ -15,17 +15,17 @@ class EditArtikel extends Component {
             paragraph1: '',
             paragraph2: '',
             paragraph3: '',
-            status: 'published',
+            status: '',
             penulis: '',
-            id:'',
-            gambar:''
+            id: '',
+            gambar: ''
         };
     }
 
-    getDataId(){
+    getDataId() {
         let id = localStorage.getItem('idKey')
         console.log(id)
-        this.setState({id})
+        this.setState({ id })
         axios.get(`http://localhost:4000/artikels/${id}`).then(
             res => {
                 console.log(res.data);
@@ -36,7 +36,8 @@ class EditArtikel extends Component {
                     gambar: data.gambar,
                     paragraph1: data.paragraph1,
                     paragraph2: data.paragraph2,
-                    paragraph3: data.paragraph3
+                    paragraph3: data.paragraph3,
+                    status: data.status
                 })
             }
         )
@@ -69,14 +70,8 @@ class EditArtikel extends Component {
         this.setState({ paragraph3: e.target.value })
     }
 
-    onDontPublish() {
-        this.setState({ status: 'draft' })
-        console.log(this.state.status)
-    }
-
-    onPublish() {
-        this.setState({ status: 'published' })
-        console.log(this.state.status)
+    onChangeStatus(e){
+        this.setState({status: e.target.value})
     }
 
     onUploadImage() {
@@ -91,9 +86,7 @@ class EditArtikel extends Component {
     }
 
     componentDidMount() {
-        this.onDontPublish();
         this.getDataId();
-        this.onPublish();
     }
 
     onUpdateData(e) {
@@ -120,7 +113,7 @@ class EditArtikel extends Component {
                 res => {
                     console.log("Sukses Update : ", res.data)
                     this.setState({ judul: '', gambar: null, paragraph1: '', paragraph2: '', paragraph3: '' })
-                    swal("Sukses Publish", { icon: 'success', buttons: () => { this.props.history.push('/admin/blog') } })
+                    swal("Sukses Publish Image", { icon: 'success', buttons: () => { this.props.history.push('/admin/blog') } })
 
                 }
             )
@@ -174,6 +167,14 @@ class EditArtikel extends Component {
                                                 <input className="form-control form-control-lg" value={this.state.penulis} onChange={this.onChangePenulis.bind(this)} type="text" placeholder="Nama lengkap" />
                                             </div>
 
+                                            <div style={{ paddingTop: 20 }}>
+                                                <h5 style={{ float: 'left' }}>Status : </h5>
+                                                <select className='form-select' value={this.state.status} onChange={this.onChangeStatus.bind(this)}>
+                                                    <option value={"published"}>Published</option>
+                                                    <option value={"draft"}>Draft</option>
+                                                </select>
+                                            </div>
+
                                             <div className="judul-width" style={{ paddingTop: 20 }}>
                                                 <h5 style={{ float: 'left' }}>Tambah Gambar</h5>
                                                 <input className="form-control form-control-sm" type="file" onChange={this.onImageChange.bind(this)} />
@@ -185,11 +186,15 @@ class EditArtikel extends Component {
                                                     )
                                                 }
                                             </div>
+
+                                            
                                         </div>
 
                                         <div className="col btn-pad">
-                                            <a className="btn btn-primary btn-width" onClick={() => { this.onUpdateData(); this.onPublish() }}>Publish</a>
-                                            <a onClick={() => { this.onDontPublish(); this.onUpdateData(); this.onUploadImage() }} className="btn btn-secondary btn-width" style={{ marginTop: 20 }}>Save don't publish</a>
+                                            {/* <a className="btn btn-primary btn-width" onClick={() => { this.onPublish() }}>Publish</a>
+                                            <a onClick={() => { this.onDontPublish()}} className="btn btn-secondary btn-width" style={{ marginTop: 20 }}>Save don't publish</a> */}
+                                            <a className="btn btn-primary btn-width" onClick={() => { this.onUpdateData()}}>Publish</a>
+                                            {/* <a onClick={() => { this.onDontPublish(); this.onUpdateData(); this.onUploadImage() }} className="btn btn-secondary btn-width" style={{ marginTop: 20 }}>Save don't publish</a> */}
                                             <a href="/admin/blog" className="btn btn-danger btn-width" style={{ marginTop: 20 }}>Back to blog</a>
                                         </div>
                                     </div>
@@ -210,6 +215,7 @@ class EditArtikel extends Component {
                                     <h5 style={{ float: 'left' }}>Paragpraph 3 (Opsional)</h5>
                                     <textarea className="form-control form-control" value={this.state.paragraph3} onChange={this.onChangeParagraph3.bind(this)} style={{ height: 200 }} type="text" />
                                 </div>
+
                             </form>
                         </div>
                     </div>
