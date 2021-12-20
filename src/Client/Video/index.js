@@ -34,7 +34,7 @@ class Video extends Component {
                     <img src={mrc_logo} />
                 </div> */}
 
-                <div className="container" style={{ paddingBottom: 30, paddingTop:100 }}>
+                <div className="container" style={{ paddingBottom: 30, paddingTop:20 }}>
                     <div>
                         <h2><u>Video</u></h2>
                         <div className="row" style={{ paddingTop: 30 }}>
@@ -42,7 +42,7 @@ class Video extends Component {
                                 this.state.collection.map((res, i) => {
                                     return (
                                         <div key={i} className="col">
-                                            <iframe width="560" height="315" src={res.uri} title={res.judul} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <iframe className='video-size' src={res.uri} title={res.judul} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
                                     )
                                 })

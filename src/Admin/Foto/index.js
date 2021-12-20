@@ -1,11 +1,77 @@
+import axios from 'axios';
 import React, { Component } from 'react';
+import swal from 'sweetalert';
 import NavAdmin from '../../components/NavAdmin';
 import Sidebar from '../../components/Sidebar';
+import './style.css';
 
 class FotoAdmin extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            judul: '',
+            foto: null,
+            fotoName: '',
+            collection: []
+        };
+    }
+
+    getDataFoto() {
+        axios.get(`http://localhost:4000/fotos`).then(
+            res => {
+                const collection = res.data;
+                this.setState({ collection })
+            }
+        )
+    }
+
+    componentDidMount() {
+        this.getDataFoto();
+    }
+
+    saveFoto() {
+        const data = {
+            judul: this.state.judul,
+            uri: 'gambar-' + this.state.foto.name
+        }
+
+        let formdata = new FormData()
+        formdata.append("gambar", this.state.foto)
+
+        axios.post('http://localhost:4000/upload/', formdata).then(
+            res => {
+                console.log(res.data)
+            }
+        )
+
+        axios.post('http://localhost:4000/fotos', data).then(
+            res => {
+                this.setState({judul:'', fotoName:'', foto:null})
+                swal("Foto Telah Ditambahkan", { icon: 'success' })
+                console.log("Sukses Post", res.data)
+                this.getDataFoto()
+            }
+        )
+    }
+
+    deleteFoto(id){
+        axios.delete(`http://localhost:4000/fotos/${id}`).then(
+            res => {
+                swal("Foto Telah Dihapus", { icon: 'error' })
+                this.getDataFoto()
+            }
+        )
+    }
+
+    handleJudul(e) {
+        this.setState({ judul: e.target.value })
+    }
+
+    handleFoto(e) {
+        if (e.target.files && e.target.files[0]) {
+            let img = e.target.files[0]
+            this.setState({ foto: img, fotoName: URL.createObjectURL(img) })
+        }
     }
     render() {
         return (
@@ -29,26 +95,27 @@ class FotoAdmin extends Component {
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title">Form URL Baru</h5>
+                                                    <h5 class="modal-title">Form Input Foto Baru</h5>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div>
                                                         <form className="form">
                                                             <div>
                                                                 <h5 style={{ float: 'left' }}>Judul</h5>
-                                                                <input className="form-control" placeholder="Ketik disini ..." type="text" />
+                                                                <input className="form-control" onChange={this.handleJudul.bind(this)} placeholder="Ketik disini ..." type="text" />
                                                             </div>
 
                                                             <div style={{ paddingTop: 20 }}>
                                                                 <h5 style={{ float: 'left' }}>Upload Foto</h5>
-                                                                <input className="form-control" placeholder="Ketik disini ..." type="file" />
+                                                                <input className="form-control" onChange={this.handleFoto.bind(this)} placeholder="Ketik disini ..." type="file" />
+                                                                <img src={this.state.fotoName} className='img-foto' />
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                    <button type="button" class="btn btn-primary">Simpan</button>
+                                                    <button type="button" class="btn btn-primary" onClick={() => this.saveFoto()} data-dismiss="modal">Simpan</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,18 +132,18 @@ class FotoAdmin extends Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td><a className="btn btn-danger">Hapus</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td><a className="btn btn-danger">Hapus</a></td>
-                                            </tr>
+                                            {
+                                                this.state.collection.reverse().map((res, i) => {
+                                                    return (
+                                                        <tr key={i}>
+                                                            <th scope="row">{i + 1}</th>
+                                                            <td>{res.judul}</td>
+                                                            <td><img src={`http://localhost:4000/upload/images/${res.uri}`} className='img-foto' /></td>
+                                                            <td><a className="btn btn-danger" onClick={()=>this.deleteFoto(res._id)}>Hapus</a></td>
+                                                        </tr>
+                                                    )
+                                                })
+                                            }
                                         </tbody>
                                     </table>
                                 </div>

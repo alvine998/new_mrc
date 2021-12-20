@@ -29,7 +29,7 @@ class Contact extends Component {
                         <div className="col">
                             <h4 style={{ fontWeight: 'bold' }}>Alamat MRC Therapy :</h4>
                             <div>
-                                <p style={{textAlign:'left'}}>
+                                <p className='responsive-p' style={{textAlign:'left'}}>
                                     D'Kranji Residence 1 No.67 <br />
                                     Kranji, Bekasi Barat, Kota Bekasi, Jawa Barat 17136
                                 </p>
@@ -38,7 +38,7 @@ class Contact extends Component {
                             {/* Kontak */}
                             <div style={{paddingTop:20}}>
                                 <h4 style={{ fontWeight: 'bold' }}>Kontak</h4>
-                                <div>
+                                <div className='responsive-p'>
                                     <p style={{textAlign:'left'}}><i className="fa fa-phone"></i> 0812-2044-4409</p>
                                     <p style={{textAlign:'left'}}><i className="fa fa-envelope"></i> info@mrc-therapy.com</p>
                                 </div>
@@ -48,19 +48,19 @@ class Contact extends Component {
                             <h5 style={{ fontWeight: 'bold' }}>Follow Sosial Media Kami :</h5>
                             <div className="container sosmed">
                                 <div className="row">
-                                    <div className="col-2">
+                                    <div className="col-md-2">
                                         <a href="https://id-id.facebook.com/MuslimRuqyahCenter/"><img src={fb} className="imgContainer" /></a>
                                         <p>Facebook</p>
                                     </div>
-                                    <div className="col-2">
+                                    <div className="col-md-2">
                                         <a href="https://www.instagram.com/ruqyah_muslim/"><img src={yt} className="imgContainer" /></a>
                                         <p>Youtube</p>
                                     </div>
-                                    <div className="col-2">
+                                    <div className="col-md-2">
                                         <a href="https://www.youtube.com/c/semestakutv"><img src={ig} className="imgContainer" /></a>
                                         <p>Instagram</p>
                                     </div>
-                                    <div className="col-2">
+                                    <div className="col-md-2">
                                         <a href="https://www.tiktok.com/@semestakutv"><img src={tktk} className="imgContainer" /></a>
                                         <p>Tiktok</p>
                                     </div>

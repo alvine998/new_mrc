@@ -12,4 +12,9 @@
         margin-top: 0px;
         margin-bottom: 0px;
     }
+
+    .navbar-center{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }

@@ -18,3 +18,22 @@
     margin-left: 90px;
     margin-top: 10px;
 }
+
+@media screen and (max-width: 400px) {
+    .responsive-p{
+        padding-left: 20px;
+    }
+    .container-contact {
+        padding-bottom: 50px;
+        padding-top: 20px;
+    }
+    .maps{
+        width: 300px;
+        height: 250px;
+        padding-bottom: 20px;
+    }
+    .sosmed {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+}
