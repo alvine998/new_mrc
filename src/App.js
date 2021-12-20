@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'font-awesome/css/font-awesome.min.css'
+
 import Home from './Client/Home';
 import Program from './Client/Program';
 import Login from './Admin/Login';
@@ -20,6 +21,7 @@ import EditArtikel from './Admin/EditArtikel';
 import Profil from './Admin/Profil';
 import VideoAdmin from './Admin/Video';
 import FotoAdmin from './Admin/Foto';
+import FotoClient from './Client/Foto';
 
 function App() {
   return (
@@ -34,7 +36,7 @@ function App() {
           {/* Artikel */}
           <Route path="/artikel/isi-artikel" element={<IsiArtikel/>} />
           {/* Galeri */}
-          <Route path="/galeri-foto" element={<Artikel/>} />
+          <Route path="/galeri-foto" element={<FotoClient/>} />
           <Route path="/galeri-video" element={<Video/>} />
 
 

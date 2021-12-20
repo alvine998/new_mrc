@@ -14,7 +14,7 @@ class Artikel extends Component {
     }
 
     getDataArtikels() {
-        axios.get(`http://localhost:4000/artikels`).then(
+        axios.get(`http://localhost:4000/artikels/published`).then(
             res => {
                 const collection = res.data;
                 console.log(collection);
@@ -23,7 +23,7 @@ class Artikel extends Component {
         )
     }
 
-    async sendIdArtikel(id){
+    async sendIdArtikel(id) {
         await localStorage.setItem('idArtikel', id)
     }
 
@@ -55,12 +55,18 @@ class Artikel extends Component {
                                 this.state.collection.reverse() && this.state.collection.map((res, i) => {
                                     while (i < 1) {
                                         return (
-                                            <a key={i} href={`/artikel/isi-artikel?id=${res._id}`} onClick={()=>this.sendIdArtikel(res._id)}>
-                                                <div className="box-img-artikel">
-                                                    <img className="img-artikels w-100 h-100" src={`http://localhost:4000/upload/images/${res.gambar}`} />
-                                                    <h5 className="judul-artikel">{res.judul}</h5>
-                                                </div>
-                                            </a>
+                                            <div>
+                                                {
+                                                    res.status == 'published' ? (
+                                                        <a key={i} href={`/artikel/isi-artikel?id=${res._id}`} onClick={() => this.sendIdArtikel(res._id)}>
+                                                            <div className="box-img-artikel">
+                                                                <img className="img-artikels w-100 h-100" src={`http://localhost:4000/upload/images/${res.gambar}`} />
+                                                                <h5 className="judul-artikel">{res.judul}</h5>
+                                                            </div>
+                                                        </a>
+                                                    ) : (<div />)
+                                                }
+                                            </div>
                                         )
                                     }
                                 })
@@ -68,40 +74,51 @@ class Artikel extends Component {
 
                         </div>
                         <div className="col-3">
-                            <a href="/artikel/isi-artikel">
+                            {
+                                this.state.collection.sort(() => Math.random() - Math.random()).find(() => true) && this.state.collection.map((res, i) => {
+                                    while (i < 2) {
+                                        return (
+                                            <a key={i} href={`/artikel/isi-artikel?id=${res._id}`} onClick={() => this.sendIdArtikel(res._id)}>
+                                                <div className="box-img-artikel2">
+                                                    <img src={`http://localhost:4000/upload/images/${res.gambar}`} alt={res.judul} className='img-artikel2' />
+                                                    <h5 className='judul-artikel'>{res.judul}</h5>
+                                                </div>
+                                            </a>
+                                        )
+                                    }
+                                })
+                            }
+
+                            {/* <a href="/artikel/isi-artikel">
                                 <div className="box-img-artikel2">
                                     <h5>Image Artikel</h5>
                                     <h5>Artikel</h5>
                                 </div>
-                            </a>
-                            <a href="/artikel/isi-artikel">
-                                <div className="box-img-artikel2">
-                                    <h5>Image Artikel</h5>
-                                    <h5>Artikel</h5>
-                                </div>
-                            </a>
+                            </a> */}
                         </div>
 
                         <div className="col-3">
-                            <a href="/artikel/isi-artikel">
-                                <div className="box-img-artikel2">
-                                    <h5>Image Artikel</h5>
-                                    <h5>Artikel</h5>
-                                </div>
-                            </a>
-                            <a href="/artikel/isi-artikel">
-                                <div className="box-img-artikel2">
-                                    <h5>Image Artikel</h5>
-                                    <h5>Artikel</h5>
-                                </div>
-                            </a>
+                            {
+                                this.state.collection.sort(() => Math.random() - Math.random()).find(() => true) && this.state.collection.map((res, i) => {
+                                    while (i < 2) {
+                                        return (
+                                            <a key={i} href={`/artikel/isi-artikel?id=${res._id}`} onClick={() => this.sendIdArtikel(res._id)}>
+                                                <div className="box-img-artikel2">
+                                                    <img src={`http://localhost:4000/upload/images/${res.gambar}`} alt={res.judul} className='img-artikel2' />
+                                                    <h5 className='judul-artikel'>{res.judul}</h5>
+                                                </div>
+                                            </a>
+                                        )
+                                    }
+                                })
+                            }
                         </div>
                     </div>
                 </div>
 
                 {
                     this.state.collection.map((result, i) => {
-                        if(result.status == 'published'){
+                        if (result.status == 'published') {
                             return (
                                 <div key={i} className="container">
                                     <div className="box-artikels">
@@ -116,7 +133,7 @@ class Artikel extends Component {
                                                 </p>
                                             </div>
                                             <div className="col-2">
-                                                <a className="btn btn-primary w-100 margin-img-artikels" href={`/artikel/isi-artikel?id=${result._id}`} onClick={()=>this.sendIdArtikel(result._id)}>Baca</a>
+                                                <a className="btn btn-primary w-100 margin-img-artikels" href={`/artikel/isi-artikel?id=${result._id}`} onClick={() => this.sendIdArtikel(result._id)}>Baca</a>
                                             </div>
                                         </div>
                                     </div>

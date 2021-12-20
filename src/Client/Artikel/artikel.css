@@ -24,6 +24,11 @@
     transition: 0.5s;
 }
 
+.img-artikel2{
+    width: 100%;
+    height: 180px;
+}
+
 .box-img-artikel2:hover {
     opacity: 1;
     margin-top: -20px;

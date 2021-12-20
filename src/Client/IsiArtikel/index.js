@@ -14,15 +14,15 @@ class IsiArtikel extends Component {
             para3: '',
             judul: '',
             penulis: '',
-            collection:[]
+            collection: []
         };
     }
 
-    getAllArtikel(){
-        axios.get(`http://localhost:4000/artikels`).then(
+    getAllArtikel() {
+        axios.get(`http://localhost:4000/artikels/published`).then(
             res => {
                 const collection = res.data;
-                this.setState({collection})
+                this.setState({ collection })
             }
         )
     }
@@ -47,7 +47,7 @@ class IsiArtikel extends Component {
         )
     }
 
-    async sendIdArtikel(id){
+    async sendIdArtikel(id) {
         await localStorage.setItem('idArtikel', id)
     }
 
@@ -86,27 +86,29 @@ class IsiArtikel extends Component {
                                     {this.state.para2}<br /><br />
                                     {this.state.para3}
                                 </p>
-                                <hr/>
-                                <h5 style={{textAlign:'left'}}>Kata Kunci : </h5>
+                                <hr />
+                                <h5 style={{ textAlign: 'left' }}>Kata Kunci : </h5>
                             </div>
                         </div>
                         <div className="col-3">
                             <div className="box-side">
                                 <h5>Artikel Lain</h5>
                                 {
-                                    this.state.collection.sort(() => Math.random() - Math.random()).find(() => true) && this.state.collection.map((res,i) => {
-                                        while(i < 3){
-                                            return(
-                                                <div className='card' key={i} style={{marginBottom:20}}>
-                                                    <img className='card-img-top img-side' src={`http://localhost:4000/upload/images/${res.gambar}`} alt={res.judul}/>
-                                                    <div className='card-body'>
-                                                        <h5 className='card-title'>{res.judul}</h5>
-                                                        {/* <p className='card-text'>{res.paragraph1.substr(0,20)}</p> */}
-                                                        <a className='btn btn-primary' href={`/artikel/isi-artikel?id=${res._id}`} onClick={()=>this.sendIdArtikel(res._id)}>Selengkapnya</a>
+                                    this.state.collection.sort(() => Math.random() - Math.random()).find(() => true) && this.state.collection.map((res, i) => {
+                                        if (res.status == 'published') {
+                                            while (i < 3) {
+                                                return (
+                                                    <div className='card' key={i} style={{ marginBottom: 20 }}>
+                                                        <img className='card-img-top img-side' src={`http://localhost:4000/upload/images/${res.gambar}`} alt={res.judul} />
+                                                        <div className='card-body'>
+                                                            <h5 className='card-title'>{res.judul}</h5>
+                                                            {/* <p className='card-text'>{res.paragraph1.substr(0,20)}</p> */}
+                                                            <a className='btn btn-primary' href={`/artikel/isi-artikel?id=${res._id}`} onClick={() => this.sendIdArtikel(res._id)}>Selengkapnya</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            )
-                                        }                                     
+                                                )
+                                            }
+                                        }
                                     })
                                 }
                             </div>
