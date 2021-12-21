@@ -27,7 +27,7 @@ class VideoAdmin extends Component {
             judul: this.state.judul,
             uri: this.state.uri
         }
-        axios.post(`http://localhost:4000/videos/`, data).then(
+        axios.post(`https://expressmrcweb.herokuapp.com/videos/`, data).then(
             res => {
                 console.log(res.data);
                 swal("Berhasil Simpan URL", { icon: 'success', })
@@ -37,7 +37,7 @@ class VideoAdmin extends Component {
     }
 
     getDataVideo() {
-        axios.get(`http://localhost:4000/videos/`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/videos/`).then(
             res => {
                 const collection = res.data;
                 console.log(collection);
@@ -47,7 +47,7 @@ class VideoAdmin extends Component {
     }
 
     deleteVideo(id){
-        axios.delete(`http://localhost:4000/videos/${id}`).then(
+        axios.delete(`https://expressmrcweb.herokuapp.com/videos/${id}`).then(
             res => {
                 console.log("Delete : ", res.data);
                 swal("Berhasil Hapus URL", { icon: 'success', })

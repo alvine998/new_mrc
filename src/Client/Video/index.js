@@ -14,7 +14,7 @@ class Video extends Component {
     }
 
     getDataVideo() {
-        axios.get(`http://localhost:4000/videos`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/videos`).then(
             res => {
                 const collection = res.data;
                 console.log(collection);

@@ -15,7 +15,7 @@ class Dashboard extends Component {
     }
 
     getJumlahArtikel() {
-        axios.get(`http://localhost:4000/artikels/`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/artikels/`).then(
             res => {
                 const collection = res.data;
                 this.setState({ jumlah_artikel: collection.length })
@@ -102,7 +102,7 @@ class Dashboard extends Component {
                                                                             <div className='container'>
                                                                                 <div className='row'>
                                                                                     <div className='col-4'>
-                                                                                        <img className='img-latepost' src={`http://localhost:4000/upload/images/${res.gambar}`} />
+                                                                                        <img className='img-latepost' src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} />
                                                                                     </div>
                                                                                     <div className='col'>
                                                                                         <h5>{res.judul}</h5>

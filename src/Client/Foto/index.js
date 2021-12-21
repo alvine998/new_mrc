@@ -13,7 +13,7 @@ class FotoClient extends Component {
     }
 
     getFotos() {
-        axios.get('http://localhost:4000/fotos').then(
+        axios.get('https://expressmrcweb.herokuapp.com/fotos').then(
             res => {
                 const collection = res.data;
                 this.setState({ collection });
@@ -38,7 +38,7 @@ class FotoClient extends Component {
                             this.state.collection.reverse().map((res, i) => {
                                 return (
                                     <div key={i} className='col-md-3'>
-                                        <img src={`http://localhost:4000/upload/images/${res.uri}`} className='foto-box-img' alt={res.judul} />
+                                        <img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.uri}`} className='foto-box-img' alt={res.judul} />
                                     </div>
                                 )
                             })

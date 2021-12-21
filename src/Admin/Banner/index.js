@@ -13,7 +13,7 @@ class Banner extends Component {
     }
 
     getDataBanner() {
-        axios.get(`http://localhost:4000/banners/`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/banners/`).then(
             res => {
                 const collection = res.data;
                 this.setState({ collection })
@@ -22,7 +22,7 @@ class Banner extends Component {
     }
 
     deleteBanner(id){
-        axios.delete(`http://localhost:4000/banners/${id}`).then(
+        axios.delete(`https://expressmrcweb.herokuapp.com/banners/${id}`).then(
             res => {
                 console.log("Sukses Delete : ", res.data)
             }
@@ -63,7 +63,7 @@ class Banner extends Component {
                                                 return (
                                                     <tr key={i}>
                                                         <th scope="row">{result.createdAt.substr(0,10)}</th>
-                                                        <td><img src={`http://localhost:4000/upload/images/${result.gambar}`} className="img-banner" /></td>
+                                                        <td><img src={`https://expressmrcweb.herokuapp.com/upload/images/${result.gambar}`} className="img-banner" /></td>
                                                         <td>
                                                             <a className="btn btn-danger" onClick={() => this.deleteBanner(result._id)} >Hapus</a>
                                                         </td>

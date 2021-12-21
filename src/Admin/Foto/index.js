@@ -17,7 +17,7 @@ class FotoAdmin extends Component {
     }
 
     getDataFoto() {
-        axios.get(`http://localhost:4000/fotos`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/fotos`).then(
             res => {
                 const collection = res.data;
                 this.setState({ collection })
@@ -38,13 +38,13 @@ class FotoAdmin extends Component {
         let formdata = new FormData()
         formdata.append("gambar", this.state.foto)
 
-        axios.post('http://localhost:4000/upload/', formdata).then(
+        axios.post('https://expressmrcweb.herokuapp.com/upload/', formdata).then(
             res => {
                 console.log(res.data)
             }
         )
 
-        axios.post('http://localhost:4000/fotos', data).then(
+        axios.post('https://expressmrcweb.herokuapp.com/fotos', data).then(
             res => {
                 this.setState({judul:'', fotoName:'', foto:null})
                 swal("Foto Telah Ditambahkan", { icon: 'success' })
@@ -55,7 +55,7 @@ class FotoAdmin extends Component {
     }
 
     deleteFoto(id){
-        axios.delete(`http://localhost:4000/fotos/${id}`).then(
+        axios.delete(`https://expressmrcweb.herokuapp.com/fotos/${id}`).then(
             res => {
                 swal("Foto Telah Dihapus", { icon: 'error' })
                 this.getDataFoto()
@@ -138,7 +138,7 @@ class FotoAdmin extends Component {
                                                         <tr key={i}>
                                                             <th scope="row">{i + 1}</th>
                                                             <td>{res.judul}</td>
-                                                            <td><img src={`http://localhost:4000/upload/images/${res.uri}`} className='img-foto' /></td>
+                                                            <td><img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.uri}`} className='img-foto' /></td>
                                                             <td><a className="btn btn-danger" onClick={()=>this.deleteFoto(res._id)}>Hapus</a></td>
                                                         </tr>
                                                     )

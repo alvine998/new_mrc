@@ -19,7 +19,7 @@ class IsiArtikel extends Component {
     }
 
     getAllArtikel() {
-        axios.get(`http://localhost:4000/artikels/published`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/artikels/published`).then(
             res => {
                 const collection = res.data;
                 this.setState({ collection })
@@ -32,7 +32,7 @@ class IsiArtikel extends Component {
         // let artikels = localStorage.getItem()
         console.log("id : ", artikel);
 
-        axios.get(`http://localhost:4000/artikels/${artikel}`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/artikels/${artikel}`).then(
             res => {
                 const result = res.data;
                 this.setState({

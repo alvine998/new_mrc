@@ -23,7 +23,7 @@ class Home extends Component {
     }
 
     getBanner() {
-        axios.get(`http://localhost:4000/banners/`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/banners/`).then(
             res => {
                 const collectionBanner = res.data;
                 this.setState({ collectionBanner })
@@ -42,7 +42,7 @@ class Home extends Component {
     }
 
     getDataPublished() {
-        axios.get(`http://localhost:4000/artikels/published`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/artikels/published`).then(
             res => {
                 const publish = res.data;
                 this.setState({ publish })
@@ -63,7 +63,7 @@ class Home extends Component {
                                 this.state.collectionBanner && this.state.collectionBanner.map((res, i) => {
                                     return (
                                         <div className={"carousel-item " + (i == 0 ? "active" : "")}>
-                                            <img src={`http://localhost:4000/upload/images/${res.gambar}`} class="d-block w-100 h-20" alt="..." />
+                                            <img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} class="d-block w-100 h-20" alt="..." />
                                             {/* <div class="carousel-caption d-none d-md-block">
                                                 <h5>{res.gambar}</h5>
                                                 <p>{res.gambar}</p>
@@ -201,14 +201,14 @@ class Home extends Component {
                     {/* Blog Start */}
                     <center style={{ paddingTop: 20, paddingBottom: 20 }}>
                         <h2><u>Artikel</u></h2>
-                        <div className="row row-cols-1 row-cols-md-3 g-2">
+                        <div className="row row-cols-1 row-cols-md-3 g-2" style={{paddingTop:20}}>
                             {
                                 this.state.publish.reverse().map((result, i) => {
                                     while (i < 3) {
                                         return (
                                             <div key={i} className="col">
                                                 <div class="card" className="cardImg">
-                                                    <img src={`http://localhost:4000/upload/images/${result.gambar}`} class="card-img-top sized" alt="..." />
+                                                    <img src={`https://expressmrcweb.herokuapp.com/upload/images/${result.gambar}`} class="card-img-top sized" alt="..." />
                                                     <div class="card-body">
                                                         <h5 class="card-title">{result.judul}</h5>
                                                         {/* <p class="card-text">{result.paragraph1.substr(0, 20)}</p> */}
@@ -255,8 +255,8 @@ class Home extends Component {
                     {/* Blog End */}
 
                     {/* Download MRC */}
-                    <div>
-                        <h2>Download Aplikasi MRC-Therapy</h2>
+                    <div style={{paddingTop:20}}>
+                        <h2><u>Download Aplikasi MRC-Therapy</u></h2>
                     </div>
 
                     {/* Download MRC App */}

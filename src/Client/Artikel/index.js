@@ -14,7 +14,7 @@ class Artikel extends Component {
     }
 
     getDataArtikels() {
-        axios.get(`http://localhost:4000/artikels/published`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/artikels/published`).then(
             res => {
                 const collection = res.data;
                 console.log(collection);
@@ -60,7 +60,7 @@ class Artikel extends Component {
                                                     res.status == 'published' ? (
                                                         <a key={i} href={`/artikel/isi-artikel?id=${res._id}`} onClick={() => this.sendIdArtikel(res._id)}>
                                                             <div className="box-img-artikel">
-                                                                <img className="img-artikels w-100 h-100" src={`http://localhost:4000/upload/images/${res.gambar}`} />
+                                                                <img className="img-artikels w-100 h-100" src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} />
                                                                 <h5 className="judul-artikel">{res.judul}</h5>
                                                             </div>
                                                         </a>
@@ -80,7 +80,7 @@ class Artikel extends Component {
                                         return (
                                             <a key={i} href={`/artikel/isi-artikel?id=${res._id}`} onClick={() => this.sendIdArtikel(res._id)}>
                                                 <div className="box-img-artikel2">
-                                                    <img src={`http://localhost:4000/upload/images/${res.gambar}`} alt={res.judul} className='img-artikel2' />
+                                                    <img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} alt={res.judul} className='img-artikel2' />
                                                     <h5 className='judul-artikel'>{res.judul}</h5>
                                                 </div>
                                             </a>
@@ -104,7 +104,7 @@ class Artikel extends Component {
                                         return (
                                             <a key={i} href={`/artikel/isi-artikel?id=${res._id}`} onClick={() => this.sendIdArtikel(res._id)}>
                                                 <div className="box-img-artikel2">
-                                                    <img src={`http://localhost:4000/upload/images/${res.gambar}`} alt={res.judul} className='img-artikel2' />
+                                                    <img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} alt={res.judul} className='img-artikel2' />
                                                     <h5 className='judul-artikel'>{res.judul}</h5>
                                                 </div>
                                             </a>
@@ -124,7 +124,7 @@ class Artikel extends Component {
                                     <div className="box-artikels">
                                         <div className="row">
                                             <div className="col-2">
-                                                <img className="img-artikels" src={`http://localhost:4000/upload/images/${result.gambar}`} />
+                                                <img className="img-artikels" src={`https://expressmrcweb.herokuapp.com/upload/images/${result.gambar}`} />
                                             </div>
                                             <div className="col">
                                                 <h5 style={{ fontWeight: 'bold' }}>{result.judul}</h5>

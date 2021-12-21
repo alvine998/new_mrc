@@ -52,7 +52,7 @@ class TambahArtikel extends Component {
         let formdata = new FormData()
         formdata.append("gambar", this.state.image)
 
-        axios.post('http://localhost:4000/upload/', formdata).then(
+        axios.post('https://expressmrcweb.herokuapp.com/upload/', formdata).then(
             res => {
                 console.log(res.data)
             }
@@ -90,7 +90,7 @@ class TambahArtikel extends Component {
             }
             console.log("Kirim : ", data)
 
-            axios.post(`http://localhost:4000/artikels/`, data).then(
+            axios.post(`https://expressmrcweb.herokuapp.com/artikels/`, data).then(
                 res => {
                     console.log("Sukses Save : ", res.data)
                     this.setState({ judul: '', gambar: null, paragraph1: '', paragraph2: '', paragraph3: '' })

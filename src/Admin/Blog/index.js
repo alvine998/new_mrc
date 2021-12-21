@@ -13,7 +13,7 @@ class Blog extends Component {
     }
 
     getDataArtikel() {
-        axios.get(`http://localhost:4000/artikels`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/artikels`).then(
             res => {
                 const collection = res.data;
                 console.log(collection);
@@ -23,7 +23,7 @@ class Blog extends Component {
     }
 
     deleteArtikel(id){
-        axios.delete(`http://localhost:4000/artikels/${id}`).then(
+        axios.delete(`https://expressmrcweb.herokuapp.com/artikels/${id}`).then(
             res => {
                 console.log("Sukses Delete : " , res.data)
                 window.location.reload()
@@ -75,7 +75,7 @@ class Blog extends Component {
                                                     <td>{res.judul}</td>
                                                     <td>{res.penulis}</td>
                                                     <td>{res.paragraph1.substr(0,20)} ...<br/>{res.paragraph2.substr(0,20)} ...<br/>{res.paragraph3.substr(0,20)} ...</td>
-                                                    <th><img src={`http://localhost:4000/upload/images/${res.gambar}`} className="img-blog" /></th>
+                                                    <th><img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} className="img-blog" /></th>
                                                     <td>{res.status}</td>
                                                     <td>
                                                         <a className="btn btn-success" onClick={() => {this.sendData(res._id);}} href="/admin/edit-artikel" style={{ marginBottom: 10 }} >Ubah</a><br/>
