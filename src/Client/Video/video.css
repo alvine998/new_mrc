@@ -3,9 +3,9 @@
     height: 315px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
     .video-size{
-        width: 300px;
+        width: 350px;
         height: 250px;
     }
 }

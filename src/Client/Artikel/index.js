@@ -44,13 +44,13 @@ class Artikel extends Component {
                     <img src={mrc_logo} />
                 </div> */}
 
-                <div style={{ paddingBottom: 20, paddingTop: 70 }}>
+                <div style={{ paddingBottom: 20, paddingTop: 20 }}>
                     <h2><u>Artikel MRC Therapy</u></h2>
                 </div>
 
                 <div className="container">
                     <div className="row">
-                        <div className="col-5">
+                        <div className="col-md-5">
                             {
                                 this.state.collection.reverse() && this.state.collection.map((res, i) => {
                                     while (i < 1) {
@@ -73,7 +73,7 @@ class Artikel extends Component {
                             }
 
                         </div>
-                        <div className="col-3">
+                        <div className="col-md-3 topper">
                             {
                                 this.state.collection.sort(() => Math.random() - Math.random()).find(() => true) && this.state.collection.map((res, i) => {
                                     while (i < 2) {
@@ -97,7 +97,7 @@ class Artikel extends Component {
                             </a> */}
                         </div>
 
-                        <div className="col-3">
+                        <div className="col-md-3">
                             {
                                 this.state.collection.sort(() => Math.random() - Math.random()).find(() => true) && this.state.collection.map((res, i) => {
                                     while (i < 2) {
@@ -123,16 +123,16 @@ class Artikel extends Component {
                                 <div key={i} className="container">
                                     <div className="box-artikels">
                                         <div className="row">
-                                            <div className="col-2">
+                                            <div className="col-md-2">
                                                 <img className="img-artikels" src={`https://expressmrcweb.herokuapp.com/upload/images/${result.gambar}`} />
                                             </div>
-                                            <div className="col">
+                                            <div className="col-md-8 resp-pad">
                                                 <h5 style={{ fontWeight: 'bold' }}>{result.judul}</h5>
                                                 <p style={{ textAlign: 'justify', padding: 20 }}>
                                                     {result.paragraph1.substr(0, 200)}....
                                                 </p>
                                             </div>
-                                            <div className="col-2">
+                                            <div className="col-md-2">
                                                 <a className="btn btn-primary w-100 margin-img-artikels" href={`/artikel/isi-artikel?id=${result._id}`} onClick={() => this.sendIdArtikel(result._id)}>Baca</a>
                                             </div>
                                         </div>

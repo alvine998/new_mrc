@@ -13,15 +13,15 @@ const options = {
     loop: true,
     margin: 10,
     nav: true,
-    responsive:{
-        0:{
-            items:1
+    responsive: {
+        0: {
+            items: 1
         },
-        600:{
-            items:1
+        600: {
+            items: 1
         },
-        1000:{
-            items:3
+        1000: {
+            items: 3
         }
     }
 }
@@ -49,7 +49,7 @@ class Home extends Component {
         )
     }
 
-    async sendDataArtikel(id){
+    async sendDataArtikel(id) {
         await localStorage.setItem('idArtikel', id)
     }
 
@@ -70,7 +70,8 @@ class Home extends Component {
     render() {
         return (
             <div className="loader">
-                <Navbar beranda="active"/>
+                {/* <a className="whatsapp" target="_blank"><i class="fa fa-whatsapp my-whatsApp"></i></a> */}
+                <Navbar beranda="active" />
                 {/* Isi Home */}
                 <div>
                     {/* Carousel Start */}
@@ -123,8 +124,8 @@ class Home extends Component {
                     {/* Mengapa Harus MRC Therapy */}
                     <div style={{ paddingTop: 0 }}>
                         <div className="square-why">
-                        <h2 style={{paddingBottom:20}}><u>Mengapa Harus MRC Therapy ? </u></h2>
-                            <OwlCarousel 
+                            <h2 style={{ paddingBottom: 20 }}><u>Mengapa Harus MRC Therapy ? </u></h2>
+                            <OwlCarousel
                                 items={1}
                                 className="owl-theme"
                                 {...options}
@@ -140,7 +141,7 @@ class Home extends Component {
                                                     <h2>Langsung Ditangani Oleh Ahlinya</h2>
                                                     <p>
                                                         Pelayanan langsung ditangani oleh pimpinan MRC
-                                                        yaitu Ust. Adrian Ibrahim atau Kang Denny bukan 
+                                                        yaitu Ust. Adrian Ibrahim atau Kang Denny bukan
                                                         oleh asisten atau wakilnya.
                                                     </p>
                                                 </div>
@@ -182,7 +183,7 @@ class Home extends Component {
                                                     <h2>Therapy di Rumah</h2>
                                                     <p>
                                                         Therapy di MRC kini dapat dilakukan di rumah Anda
-                                                        dengan melakukan booking untuk menentukan jadwal terlebih dahulu. 
+                                                        dengan melakukan booking untuk menentukan jadwal terlebih dahulu.
                                                     </p>
                                                 </div>
                                             </div>
@@ -217,7 +218,7 @@ class Home extends Component {
                     {/* Blog Start */}
                     <center style={{ paddingTop: 20, paddingBottom: 20 }}>
                         <h2><u>Artikel</u></h2>
-                        <div className="row row-cols-1 row-cols-md-3 g-2" style={{paddingTop:20}}>
+                        <div className="row row-cols-1 row-cols-md-3 g-2" style={{ paddingTop: 20 }}>
                             {
                                 this.state.publish.reverse().map((result, i) => {
                                     while (i < 3) {
@@ -228,7 +229,7 @@ class Home extends Component {
                                                     <div class="card-body">
                                                         <h5 class="card-title">{result.judul}</h5>
                                                         {/* <p class="card-text">{result.paragraph1.substr(0, 20)}</p> */}
-                                                        <a href={`/artikel/isi-artikel?id?=${result._id}`} onClick={()=>this.sendDataArtikel(result._id)} class="btn btn-primary colortrue">Lihat</a>
+                                                        <a href={`/artikel/isi-artikel?id?=${result._id}`} onClick={() => this.sendDataArtikel(result._id)} class="btn btn-primary colortrue">Lihat</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -271,7 +272,7 @@ class Home extends Component {
                     {/* Blog End */}
 
                     {/* Download MRC */}
-                    <div style={{paddingTop:20}}>
+                    <div style={{ paddingTop: 20 }}>
                         <h2><u>Download Aplikasi MRC-Therapy</u></h2>
                     </div>
 
@@ -282,7 +283,7 @@ class Home extends Component {
                                 <img src={qr_code} className="size-qr" />
                             </div>
                             <div className="col">
-                                <a href="https://play.google.com/store/apps/details?id=com.semesta_mrc2"><img className="resp-playstore" src={play_store}/></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.semesta_mrc2"><img className="resp-playstore" src={play_store} /></a>
                             </div>
                         </div>
                     </div>

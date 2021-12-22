@@ -45,12 +45,17 @@ class Navbar extends Component {
                                         <li><a class="dropdown-item" href="/galeri-video">Video</a></li>
                                     </ul>
                                 </li>
+
                                 <li class="nav-item">
                                     <a className={"nav-link " + (this.props.kontak ? "active" : "")} href="/kontak-kami">Kontak Kami</a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a className={"nav-link " + (this.props.blog ? "active" : "")} href="/artikel">Artikel</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a className={"nav-link " + (this.props.karir ? "active" : "")} href="#">Karir Mitra</a>
                                 </li>
 
                             </ul>
