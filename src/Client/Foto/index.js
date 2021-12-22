@@ -38,7 +38,23 @@ class FotoClient extends Component {
                             this.state.collection.reverse().map((res, i) => {
                                 return (
                                     <div key={i} className='col-md-3'>
-                                        <img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.uri}`} className='foto-box-img' alt={res.judul} />
+                                        <a href='#' data-bs-toggle="modal" data-bs-target={"#exampleModal"}>
+                                            <img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} className='foto-box-img' alt={res.judul} />
+                                        </a>
+
+                                        {/* Modal Image Zoom Out*/}
+                                        <div className='modal fade' id='exampleModal' tabIndex={"-1"} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div className='modal-dialog'>
+                                                <div className='modal-content'>
+                                                    <div className='modal-header'>
+                                                        <button type='button' className='btn-close' data-bs-dismiss="modal" aria-label='Close'></button>
+                                                    </div>
+                                                    <div className='modal-body'>
+                                                        <img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} className='foto-box-img-modal' alt={res.judul} />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 )
                             })

@@ -15,7 +15,7 @@ class Dashboard extends Component {
     }
 
     getJumlahArtikel() {
-        axios.get(`https://expressmrcweb.herokuapp.com/artikels/`).then(
+        axios.get(`https://expressmrcweb.herokuapp.com/artikels/published`).then(
             res => {
                 const collection = res.data;
                 this.setState({ jumlah_artikel: collection.length })
@@ -44,52 +44,29 @@ class Dashboard extends Component {
                                 <div className="container">
                                     <div className="row">
                                         <div className="col-md-3">
-                                            <div class="card card-visitor">
-                                                <div class="card-body">
-                                                    <p class="card-text">Jumlah Visitor : </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-3">
                                             <div class="card card-artikel">
                                                 <div class="card-body">
-                                                    <p class="card-text">Jumlah Artikel : {this.state.jumlah_artikel}</p>
+                                                    <p class="card-text">Jumlah Artikel Publish : {this.state.jumlah_artikel}</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* <div className="col-md-3">
-                                            <div class="card card-">
-                                                <img class="card-img-top" src="..." alt="Card image cap" />
-                                                <div class="card-body">
-                                                    <p class="card-text">Jumlah Datang</p>
-                                                </div>
-                                            </div>
-                                        </div> */}
-                                        {/* <div className="col-md-3">
-                                            <div class="card">
-                                                <img class="card-img-top" src="..." alt="Card image cap" />
-                                                <div class="card-body">
-                                                    <p class="card-text">Jumlah Stok</p>
-                                                </div>
-                                            </div>
-                                        </div> */}
                                     </div>
                                 </div>
 
 
                                 {/* Grafik */}
-                                <div className="container" style={{ paddingTop: 20 }}>
+                                {/* <div className="container" style={{ paddingTop: 20 }}>
                                     <div className="square-grafik">
-                                        <div>
+                                        <div> */}
                                             {/* <MixedChart/> */}
-                                        </div>
+                                        {/* </div>
                                     </div>
-                                </div>
+                                </div> */}
 
                                 {/* Latest Post */}
                                 <div className="container container-dashboard">
-                                    <div className="row">
-                                        <div className="col-md-6">
+                                    {/* <div className="row">
+                                        <div className="col-md-6"> */}
                                             <div className="latestpost">
                                                 <h4>Post Terbaru</h4>
                                                 <div style={{ paddingTop: 20 }}>
@@ -98,7 +75,7 @@ class Dashboard extends Component {
                                                             while (i < 2) {
                                                                 return (
                                                                     <a key={i} href='#' className='box-effect'>
-                                                                        <div className='box-latestpost' style={{ marginBottom: 10 }}>
+                                                                        <div className='box-latestpost' style={{ marginBottom: 20 }}>
                                                                             <div className='container'>
                                                                                 <div className='row'>
                                                                                     <div className='col-4'>
@@ -106,7 +83,7 @@ class Dashboard extends Component {
                                                                                     </div>
                                                                                     <div className='col'>
                                                                                         <h5>{res.judul}</h5>
-                                                                                        <p style={{ textAlign: 'justify' }}>{res.paragraph1.substr(0, 80)}....</p>
+                                                                                        <p style={{ textAlign: 'justify' }}>{res.paragraph1.substr(0, 200)}....</p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -133,13 +110,13 @@ class Dashboard extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="col-md-6">
+                                        {/* <div className="col-md-6">
                                             <div className="popularpost">
                                                 <h4>Komentar</h4>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </div> */}
+                                    {/* </div>
+                                </div> */}
 
                             </div>
                         </div>

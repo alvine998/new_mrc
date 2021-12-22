@@ -32,7 +32,7 @@ class FotoAdmin extends Component {
     saveFoto() {
         const data = {
             judul: this.state.judul,
-            uri: 'gambar-' + this.state.foto.name
+            gambar: 'gambar-' + this.state.foto.name
         }
 
         let formdata = new FormData()
@@ -138,7 +138,7 @@ class FotoAdmin extends Component {
                                                         <tr key={i}>
                                                             <th scope="row">{i + 1}</th>
                                                             <td>{res.judul}</td>
-                                                            <td><img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.uri}`} className='img-foto' /></td>
+                                                            <td><img src={`https://expressmrcweb.herokuapp.com/upload/images/${res.gambar}`} className='img-foto' /></td>
                                                             <td><a className="btn btn-danger" onClick={()=>this.deleteFoto(res._id)}>Hapus</a></td>
                                                         </tr>
                                                     )

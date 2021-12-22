@@ -150,3 +150,23 @@ h2:hover {
     padding-right: 40px;
     line-height: 30px;
 }
+
+@media screen and (max-width: 400px) {
+    .h-20{
+        height: 300px;
+    }
+    .imgMrc{
+        width: 100%;
+    }
+    .color-button{
+        margin-left: 50px;
+    }
+    .resp-playstore{
+        width: 80%;
+        height: 100px;
+    }
+    .size-qr{
+        width: 150%;
+        height: 150px;
+    }
+}

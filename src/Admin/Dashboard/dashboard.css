@@ -23,7 +23,7 @@ body{
 .latestpost {
     width: 100%;
     height: 400px;
-    background-color: rgb(226, 226, 226);
+    /* background-color: rgb(226, 226, 226); */
     padding: 10px;
 }
 
@@ -55,7 +55,7 @@ body{
 
 .img-latepost{
     width: 100%;
-    height: 100px;
+    height: 200px;
 }
 
 .sider {
@@ -67,7 +67,7 @@ body{
 .box-latestpost{
     background-color: blanchedalmond;
     width: 100%;
-    height: 150px;
+    height: 250px;
     padding: 20px;
     box-shadow: 5px 10px #dfdfdf;
     transition: 0.5s;

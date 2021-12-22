@@ -9,6 +9,23 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import axios from "axios";
 import { consult, envelopes, herbal, houses, icon_1, play_store, qr_code } from "../../assets";
 
+const options = {
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:3
+        }
+    }
+}
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -92,7 +109,7 @@ class Home extends Component {
                                 <img src={this.state.vector1} className="imgMrc" />
                             </div>
                             <div className="col spacing">
-                                <p style={{ textAlign: 'justify', paddingRight: 40, paddingTop: 40 }}>
+                                <p className="responsive-p" style={{ textAlign: 'justify', paddingRight: 40, paddingTop: 40 }}>
                                     MRC Therapy atau Muslim Ruqyah Center Therapy adalah metode pengobatan untuk berbagai penyakit medis maupun non medis melalui ayat-ayat Al-qur'an yang dibacakan atau dido'akan kepada seseorang yang mengalami gangguan penyakit.
                                     <br />
                                     Sebagai penunjang penyembuhan, Kami menggunakan obat-obat herbal yang sesuai dengan anjuran Nabi seperti serbuk bidara, minyak zaitun, kurma aliyah, air zam-zam, madu, serta garam himalaya.
@@ -107,11 +124,10 @@ class Home extends Component {
                     <div style={{ paddingTop: 0 }}>
                         <div className="square-why">
                         <h2 style={{paddingBottom:20}}><u>Mengapa Harus MRC Therapy ? </u></h2>
-                            <OwlCarousel items={3}
+                            <OwlCarousel 
+                                items={1}
                                 className="owl-theme"
-                                loop
-                                nav
-                                margin={8}
+                                {...options}
                             >
                                 <div className="item">
                                     <div className="img">
@@ -266,7 +282,7 @@ class Home extends Component {
                                 <img src={qr_code} className="size-qr" />
                             </div>
                             <div className="col">
-                                <a href="https://play.google.com/store/apps/details?id=com.semesta_mrc2"><img src={play_store}/></a>
+                                <a href="https://play.google.com/store/apps/details?id=com.semesta_mrc2"><img className="resp-playstore" src={play_store}/></a>
                             </div>
                         </div>
                     </div>
