@@ -16,7 +16,7 @@ class About extends Component {
                     <Navbar tentang="active" />
                 </div>
 
-                <div style={{paddingTop:100}}>
+                <div style={{paddingTop:20}}>
 
                     {/* Definisi MRC */}
                     <h2 className="bottom-about"><u>Profil MRC Therapy</u></h2>
@@ -37,9 +37,9 @@ class About extends Component {
                                     </p>
                                 </div>
                             </div>
-                            <div className="col-5">
+                            <div className="col-md-5">
                                 <div className="square-mrc-about">
-                                    <img src={mrc_logo} className="w-100 h-100" />
+                                    <img src={mrc_logo} className="w-100 h-100 responsive-img" />
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ class About extends Component {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-5">
+                                <div className="col-md-5">
                                     <div className="square-mrc-about">
                                         <img className="w-100 h-100" src={ust_denny} />
                                     </div>
