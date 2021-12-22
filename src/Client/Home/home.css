@@ -151,7 +151,7 @@ h2:hover {
     line-height: 30px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
     .h-20{
         height: 300px;
     }
@@ -159,7 +159,7 @@ h2:hover {
         width: 100%;
     }
     .color-button{
-        margin-left: 50px;
+        margin-left: 20px;
     }
     .resp-playstore{
         width: 80%;
@@ -168,5 +168,8 @@ h2:hover {
     .size-qr{
         width: 150%;
         height: 150px;
+    }
+    .responsive-p{
+        padding-left: 20px;
     }
 }

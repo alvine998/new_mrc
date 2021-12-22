@@ -72,15 +72,15 @@ class Program extends Component {
                         <img src={mrc_logo} />
                     </div> */}
 
-                    <h2 style={{ paddingTop: 100 }}><u>Program MRC Therapy</u></h2>
+                    <h2 style={{ paddingTop: 20 }}><u>Program MRC Therapy</u></h2>
 
                     {/* Card Program */}
                     <div className="container" style={{ paddingTop: 20, paddingBottom: 100 }}>
                         <div className="row">
-                            <div className="col-3">
+                            <div className="col-md-3">
                                 <a><button onClick={() => this.onRuqyah()} className={"btn-ruqyah " + (this.state.btns == 'ruqyah' ? 'actived' : "")}>Ruqyah Terapi Syar'i</button></a>
                             </div>
-                            <div className="col-3 right">
+                            <div className="col-md-3 right">
                                 <a><button onClick={() => this.onTerapi()} className={"btn-terapi " + (this.state.btns == 'terapi' ? 'actived' : "")}>Terapi Reposisi Tulang</button></a>
                             </div>
                         </div>
